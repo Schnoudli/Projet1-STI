@@ -1,3 +1,5 @@
+<?php /*  Protection de fichier */
+if ( count( get_included_files() ) == 1) die( '--access denied--' );?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +7,7 @@
     <title>Portail de connexion</title>
 </head>
 <body>
-    <form method="post" action="INC/formSubmit.php">
+    <form method="post" action="formSubmit.php">
         <label for="login">Login</label>
         <input type="text" id="login" name="login" placeholder="email" required><br>
         <label for="password">Password</label>
