@@ -9,9 +9,9 @@ if ( count( get_included_files() ) == 1) die( '--access denied--' );?>
 <body>
     <form method="post" action="INC/formSubmit.php">
         <label for="login">Login</label>
-        <input type="text" id="login" name="login" placeholder="email" required><br>
+        <input type="text" id="login" name="login" placeholder="email" required><br><br>
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="password" required><br>
+        <input type="password" id="password" name="password" placeholder="password" required><br><br>
         <input type="submit" value="submit">
     </form>
 </body>

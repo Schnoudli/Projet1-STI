@@ -17,7 +17,7 @@ catch(PDOException $e)
 {
     echo $e->getMessage();
     echo "<br><br>Database -- NOT -- loaded successfully .. ";
-    die( "<br><br>Query Closed !!! $error");
+    die( "<br><br>Query Closed !!!²");
 }
 
 echo "Database loaded successfully ...." . "<br/>";
