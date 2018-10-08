@@ -9,13 +9,16 @@
     <style>
         #top{
             text-align: left;
-            width: inherit;
+            padding: 10px;
+            border-bottom: 1px solid gray;
         }
         main{
             display: flex;
         }
         #lateral{
             flex: 1;
+            border-right: 1px solid gray;
+            height: 100vh;
         }
         #content{
             flex: 9;

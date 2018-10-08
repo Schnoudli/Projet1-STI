@@ -9,7 +9,7 @@ try
 {
     /*** connect to SQLite database ***/
 
-    $file_db = new PDO("sqlite:/usr/share/nginx/databases/database.sqlite");
+    $file_db = new PDO("sqlite:../DB/database.sqlite");
     echo "Handle has been created ...... <br><br>";
 
 }
