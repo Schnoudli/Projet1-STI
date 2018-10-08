@@ -1,5 +1,5 @@
 <?php /*  Protection de fichier */
-//if ( count( get_included_files() ) == 1) die( '--access denied--' );
+  if ( count( get_included_files() ) == 1) die( '--access denied--' );
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +38,7 @@
             <p>Messages supprimés</p>
         </div>
         <div id="content">
-
+            <?php ?>
         </div>
     </main>
 </body>
