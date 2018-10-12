@@ -5,34 +5,31 @@
  * Date: 02/10/2018
  * Time: 08:54
  */
+/***********    Phase de connection à la DB     ************/
 try
 {
     /*** connect to SQLite database ***/
 
-    # Pour Docker ou serveur Nginx
-    $file_db = new PDO("sqlite:/usr/share/nginx/DB/database.sqlite");
-
-    # Pour windows
-    #$file_db = new PDO('sqlite:c:\Users\Andre\PhpstormProjects\Projet1-STI\DB\database.sqlite');
-
-    echo "Handle has been created ...... <br><br>";
+    $file_db = new PDO("sqlite:../../DB/database.sqlite");
 
 }
 catch(PDOException $e)
 {
     echo $e->getMessage();
     echo "<br><br>Database -- NOT -- loaded successfully .. ";
-    die( "<br><br>Query Closed !!!²");
+    die( "<br><br>Query Closed !!!");
 }
 
-echo "Database loaded successfully ...." . "<br/>";
+/***********    Connection à la DB OK     ************/
 
-$dest = 1;
+// Permet de récupérer tout les messages où l'on est le destinataire
+$result = $file_db->query("SELECT * FROM Messages INNER JOIN Message ON Messages.Message_id = Message.Message_id WHERE Messages.Destinataire='$user'");
 
-$result = $file_db->query("SELECT * FROM Messages INNER JOIN Message ON Messages.Message_id = Message.Message_id WHERE Messages.Destinataire='$dest'");
 if($result === NULL){
-    echo "pas de messages";
+    echo "pas de messages"; // TODO à fixer, ne fonctionne pas (cas de bob l'éponge
 }
+
+// Affichage des différents messages
 else{
     foreach ($result as $row) {
         echo "Message_id: " . $row['Message_id'] . "<br/>";

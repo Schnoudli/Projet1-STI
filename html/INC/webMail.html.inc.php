@@ -1,5 +1,6 @@
 <?php /*  Protection de fichier */
   if ( count( get_included_files() ) == 1) die( '--access denied--' );
+  session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +39,12 @@
             <p>Messages supprimés</p>
         </div>
         <div id="content">
-            <?php ?>
+            <?php
+            echo "User id is " . $_SESSION["user_id"] . ".<br>";
+            echo "Admin is " . $_SESSION["admin"] . ".<br>";
+            $user = $_SESSION["user_id"];
+            include "getMessages.php";
+            ?>
         </div>
     </main>
 </body>
