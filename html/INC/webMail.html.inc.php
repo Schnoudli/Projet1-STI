@@ -41,7 +41,7 @@
         <div id="content">
             <?php
             echo "User id is " . $_SESSION["user_id"] . ".<br>";
-            echo "Admin is " . $_SESSION["admin"] . ".<br>";
+            echo "Admin is " . ($_SESSION["admin"] ? 'admin' : 'notAdmin'). ".<br>";
             $user = $_SESSION["user_id"];
             include "getMessages.php";
             ?>

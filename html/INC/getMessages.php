@@ -43,3 +43,5 @@ else{
 
     }
 }
+
+$file_db = null;

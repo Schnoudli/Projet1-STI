@@ -33,7 +33,7 @@ $result = $file_db->query("SELECT Actif, User_id, Admin FROM Personne WHERE User
 
 // Nous indique que le login et mot de passe tapé ne match pas
 if($result === NULL){
-    echo "Login impossible, aller prendre un café avec l'admin pour obtenir un compte";
+    echo "Login impossible, aller prendre un café avec l'admin pour obtenir un compte"; //TODO pareil que l'autre
 }
 
 // L'utilisateur existe dans la base de donnée
