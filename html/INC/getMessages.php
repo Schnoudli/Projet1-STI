@@ -20,29 +20,31 @@ catch(PDOException $e)
     die( "<br><br>Query Closed !!!");
 }
 
+function setupMsg($arr) {
+    $string="";
+    foreach ($arr as $row) {
+        $string .= "Message_id: " . $row['Message_id'] . "<br/>";
+        $string .= "Date: " . $row['Date'] . "<br/>";
+        $string .= "Expediteur: " . $row['Expediteur'] . "<br/>";
+        $string .= "Destinataire: " . $row['Destinataire'] . "<br/>";
+        $string .= "Sujet: " . $row['Sujet'] . "<br/>";
+        $string .= "Message: " . $row['Message'] . "<br/>";
+        $string .= "Lu: " . $row['Lu'] . "<br/>";
+        $string .= "<br/>";
+    }
+    return $string;
+}
+
 /***********    Connexion à la DB OK     ************/
 
 // Permet de récupérer tout les messages où l'on est le destinataire
 $result = $file_db->query("SELECT * FROM Messages INNER JOIN Message ON Messages.Message_id = Message.Message_id WHERE Messages.Destinataire='$user'");
 
-if($result === NULL){
-    echo "pas de messages"; // TODO à fixer, ne fonctionne pas (cas de bob l'éponge
-}
-
 // Affichage des différents messages
-else{
-    foreach ($result as $row) {
-        echo "Message_id: " . $row['Message_id'] . "<br/>";
-        echo "Date: " . $row['Date'] . "<br/>";
-        echo "Expediteur: " . $row['Expediteur'] . "<br/>";
-        echo "Destinataire: " . $row['Destinataire'] . "<br/>";
-        echo "Sujet: " . $row['Sujet'] . "<br/>";
-        echo "Message: " . $row['Message'] . "<br/>";
-        echo "Lu: " . $row['Lu'] . "<br/>";
-        echo "<br/>";
 
-    }
-}
+$msg = setupMsg($result);
+echo $msg ? $msg : 'Pas de message';
+
 
 /***********    Déconnexion de la DB        ************/
 $file_db = null;

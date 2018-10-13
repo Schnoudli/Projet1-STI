@@ -32,13 +32,10 @@ $password = $_POST["password"];
 $result = $file_db->query("SELECT Actif, User_id, Admin FROM Personne WHERE Username='$name' AND Pass='$password'");
 
 // Nous indique que le login et mot de passe tapé ne match pas
-if($result === NULL){
-    echo "Login impossible, aller prendre un café avec l'admin pour obtenir un compte"; //TODO pareil que l'autre
-}
 
-// L'utilisateur existe dans la base de donnée
-else{
-    foreach ($result as $row) {
+function checkLogin($arr) {
+    $bool = true;
+    foreach ($arr as $row) {
         // Permet de savoir si l'utilisateur courant est actif ou non
         if(empty($row['Actif'])){
             echo "Compte inactif!" . "<br/>";
@@ -53,7 +50,11 @@ else{
                 $_SESSION["admin"] = true;
             }
             require_once 'webMail.html.inc.php';
-            exit();
         }
     }
+    return $bool;
+}
+
+if(checkLogin($result)){
+    echo "Login impossible, aller prendre un café avec l'admin pour obtenir un compte";
 }
