@@ -20,7 +20,7 @@ catch(PDOException $e)
     die( "<br><br>Query Closed !!!");
 }
 
-/***********    Connection à la DB OK     ************/
+/***********    Connexion à la DB OK     ************/
 
 // Permet de récupérer tout les messages où l'on est le destinataire
 $result = $file_db->query("SELECT * FROM Messages INNER JOIN Message ON Messages.Message_id = Message.Message_id WHERE Messages.Destinataire='$user'");
@@ -44,4 +44,5 @@ else{
     }
 }
 
+/***********    Déconnexion de la DB        ************/
 $file_db = null;
