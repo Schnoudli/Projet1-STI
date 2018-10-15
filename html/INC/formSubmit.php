@@ -6,7 +6,6 @@
  * Time: 08:54
  */
 session_start();
-
 /***********    Phase de connection à la DB     ************/
 try
 {
@@ -25,6 +24,7 @@ catch(PDOException $e)
 /***********    Connection à la DB OK     ************/
 
 // Permet de récupérer le login et le password passé depuis la page de connection
+
 $name = $_POST["login"];
 $password = $_POST["password"];
 
@@ -32,13 +32,21 @@ $password = $_POST["password"];
 $result = $file_db->query("SELECT Actif, User_id, Admin FROM Personne WHERE Username='$name' AND Pass='$password'");
 
 // Nous indique que le login et mot de passe tapé ne match pas
+function chargeTemplate(){
+    //$name = "cc"; //Test pour l'erreur
+    $filename = 'INC/webmail.html.inc.php';
+    return file_exists($filename) ? implode("\n", file($filename)) : false;
+}
 
 function checkLogin($arr) {
     $bool = true;
+    $arrToSend = array();
     foreach ($arr as $row) {
         // Permet de savoir si l'utilisateur courant est actif ou non
         if(empty($row['Actif'])){
-            echo "Compte inactif!" . "<br/>";
+            array_push($arrToSend, "error", "Compte inactif!" . "<br/>") ;
+            echo json_encode($arrToSend);
+            $bool = false;
         }
         else{
             // Permet de setter les variables de session utile pour toute la connection
@@ -49,12 +57,16 @@ function checkLogin($arr) {
             else{
                 $_SESSION["admin"] = true;
             }
-            require_once 'webMail.html.inc.php';
+            array_push($arrToSend, "display", implode("\n", file('webMail.html.inc.php'))) ;
+            echo json_encode($arrToSend);
+            $bool = false;
         }
     }
     return $bool;
 }
 
 if(checkLogin($result)){
-    echo "Login impossible, aller prendre un café avec l'admin pour obtenir un compte";
+    $arrToSend = array();
+    array_push($arrToSend, "error", "Login impossible, aller prendre un café avec l'admin pour obtenir un compte") ;
+    echo json_encode($arrToSend);
 }
