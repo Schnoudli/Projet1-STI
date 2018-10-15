@@ -1,6 +1,5 @@
 <?php /*  Protection de fichier */
   if ( count( get_included_files() ) == 1) die( '--access denied--' );
-  session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
