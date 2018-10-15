@@ -24,5 +24,11 @@ catch(PDOException $e)
 /***********    Connection à la DB OK     ************/
 
 // Permet de supprimer le message_id dans la table liant un message à deux personnes
-$result = $file_db->query("DELETE FROM Messages WHERE Messages.Messages_id='$msg'");
-if($result === NULL){};
+$messages_id = $_POST["messages_id"];
+
+echo $user_id . "<br/>";
+
+$sql = "DELETE Messages WHERE Messages_id = " . $messages_id . ";";
+
+// Mise à jour du password
+$result = $file_db->exec($sql);
