@@ -24,13 +24,21 @@ catch(PDOException $e)
 /***********    Connection à la DB OK     ************/
 
 // Permet de récupérer l'id de l'utilisateur suivant qu'on soit admin ou non
-if($_SESSION["admin"] === NULL) {
+/*if($_SESSION["admin"] === NULL) {
     $user = $_SESSION["user_id"];
 }
 // Récupére la variable dans la page accessible uniquement aux admins
 else{
     $user = $user_id;
 }
+*/
+    $user_id = $_POST["user_id"];
+    $password = $_POST["password"];
+
+echo $user_id . "<br/>";
+echo $password . "<br/>";
+
+$sql = "UPDATE Personne SET Pass = '" . $password . "' WHERE User_id = " . $user_id . ";";
 
 // Mise à jour du password
-$result = $file_db->query("UPDATE Personne SET Pass = $password WHERE User_id=$user");
+$result = $file_db->exec($sql);
