@@ -6,6 +6,7 @@
  * Time: 08:54
  */
 /***********    Phase de connection à la DB     ************/
+session_start();
 try
 {
     /*** connect to SQLite database ***/
@@ -36,14 +37,17 @@ function setupMsg($arr) {
 }
 
 /***********    Connexion à la DB OK     ************/
-
+$user = $_SESSION["user_id"];
 // Permet de récupérer tout les messages où l'on est le destinataire
 $result = $file_db->query("SELECT * FROM Messages INNER JOIN Message ON Messages.Message_id = Message.Message_id WHERE Messages.Destinataire='$user'");
 
 // Affichage des différents messages
 
 $msg = setupMsg($result);
-echo $msg ? $msg : 'Pas de message';
+
+$arrToSend = array();
+array_push($arrToSend, '#content', $msg ? $msg : 'Pas de message') ;
+echo json_encode($arrToSend);
 
 
 /***********    Déconnexion de la DB        ************/

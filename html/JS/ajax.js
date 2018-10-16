@@ -19,19 +19,16 @@ function login() {
     var log = document.getElementById('login').value;
     var pass = document.getElementById('password').value;
     var type = 'login';   //{};
-    $.post('INC/formSubmit.php',{login : log , password : pass, type : type }, gereRetour);
+    var post = $.post('INC/formSubmit.php',{login : log , password : pass, type : type }, manageReturn);
+    post.done($.post('INC/getMessages.php', manageReturn));
 };
 
-function gereRetour(retour) {
+function manageReturn(retour) {
     var json = testeJson(retour);
-    if(json[0] == 'error') {
-        $("#msgErrorId").html(json[1]);
-    }
-    else if(json[0] == 'display') {
-        $("body").html(json[1]);
-    }
+    $(json[0]).html(json[1]);
 };
+
 function deconnexion(){
-    $.post('INC/deco.php');
-    location.reload();
+    var post = $.post('INC/deco.php');
+    post.done(window.location.reload());
 };

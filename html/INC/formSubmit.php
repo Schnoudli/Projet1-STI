@@ -57,7 +57,7 @@ function checkLogin($arr) {
             else{
                 $_SESSION["admin"] = true;
             }
-            array_push($arrToSend, "display", implode("\n", file('webMail.html.inc.php'))) ;
+            array_push($arrToSend, "body", implode("\n", file('webMail.html.inc.php'))) ;
             echo json_encode($arrToSend);
             $bool = false;
         }
@@ -67,6 +67,6 @@ function checkLogin($arr) {
 
 if(checkLogin($result)){
     $arrToSend = array();
-    array_push($arrToSend, "error", "Login impossible, aller prendre un café avec l'admin pour obtenir un compte") ;
+    array_push($arrToSend, "#msgErrorId", "Login impossible, aller prendre un café avec l'admin pour obtenir un compte") ;
     echo json_encode($arrToSend);
 }
