@@ -10,4 +10,6 @@ session_start();
 
 unset($_SESSION["user_id"]);
 
-header("Refresh:0");
+if(!isset($_SESSION["user_id"])){
+    header("Refresh:0");
+}

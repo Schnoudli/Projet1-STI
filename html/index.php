@@ -13,31 +13,7 @@ session_start();?>
 <head>
     <meta charset="UTF-8">
     <title>Portail Mail</title>
-    <style>
-        #top{
-        text-align: left;
-                    padding: 10px;
-                    border-bottom: 1px solid gray;
-                }
-                main{
-            display: flex;
-        }
-                #lateral{
-                    flex: 1;
-                    border-right: 1px solid gray;
-                    height: 100vh;
-                }
-                #content{
-                    flex: 9;
-                }
-        .msgError
-        {
-            color : red;
-            font-size : 200%;
-            width: 300px;
-            height: 40px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="CSS/index.css">
     <script type="text/javascript" src="JS/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="JS/ajax.js"></script>
 </head>

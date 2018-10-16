@@ -11,9 +11,9 @@
         <div id="lateral">
             <p>Boite de réception</p>
             <p>Messages envoyés</p>
-            <p>Messages supprimés</p>
         </div>
         <div id="content">
         </div>
     </main>
+    <script>getMessage()</script>
 </body>

@@ -24,14 +24,11 @@ catch(PDOException $e)
 function setupMsg($arr) {
     $string="";
     foreach ($arr as $row) {
-        $string .= "Message_id: " . $row['Message_id'] . "<br/>";
-        $string .= "Date: " . $row['Date'] . "<br/>";
-        $string .= "Expediteur: " . $row['Expediteur'] . "<br/>";
-        $string .= "Destinataire: " . $row['Destinataire'] . "<br/>";
-        $string .= "Sujet: " . $row['Sujet'] . "<br/>";
-        $string .= "Message: " . $row['Message'] . "<br/>";
-        $string .= "Lu: " . $row['Lu'] . "<br/>";
-        $string .= "<br/>";
+        $string .= "<table><tbody><tr>";
+        $string .= "<td class='row1'>" . $row['Expediteur'] . "</td>";
+        $string .= "<td class='row2'>" . $row['Sujet'] . "</td>";
+        $string .= "<td class='row3'>" . $row['Date'] . "</td>";
+        $string .= "</tr></tbody></table>";
     }
     return $string;
 }

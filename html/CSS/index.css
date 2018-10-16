@@ -1,0 +1,47 @@
+
+#top{
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid gray;
+}
+main{
+    display: flex;
+}
+#lateral{
+    flex: 1;
+    border-right: 1px solid gray;
+    height: 100vh;
+}
+#content{
+    flex: 9;
+}
+.msgError
+{
+    color : red;
+    font-size : 200%;
+    width: 300px;
+    height: 40px;
+}
+table {
+    display: block;
+    width: 100%;
+}
+tbody {
+    display: block;
+}
+tr {
+    display: flex;
+}
+td {
+    padding: 10px;
+    cursor: pointer;
+}
+.row1 {
+    flex: 2;
+}
+.row2 {
+    flex: 5;
+}
+.row3 {
+    flex: 2;
+}
