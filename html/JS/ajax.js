@@ -26,6 +26,10 @@ function getAllMessage(){
     $.post('INC/getAllMessages.php', manageReturn);
 }
 
+function getMessage(){
+    $.post('INC/getMessages.php', manageReturn);
+}
+
 function manageReturn(retour) {
     let json = testeJson(retour);
     $(json[0]).html(json[1]);

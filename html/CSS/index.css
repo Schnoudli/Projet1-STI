@@ -50,3 +50,6 @@ td {
 .row3 {
     flex: 2;
 }
+#contentMsg{
+    padding-left: 10px;
+}

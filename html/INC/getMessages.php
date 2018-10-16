@@ -2,10 +2,9 @@
 /**
  * Created by PhpStorm.
  * User: Mitraillet
- * Date: 02/10/2018
- * Time: 08:54
+ * Date: 16/10/2018
+ * Time: 19:21
  */
-/***********    Phase de connection à la DB     ************/
 session_start();
 try
 {
@@ -22,19 +21,16 @@ catch(PDOException $e)
 }
 
 function setupMsg($arr) {
-    $string="<table><tbody>";
+    $string="<div id='contentMsg'>";
     foreach ($arr as $row) {
-        $string .= "<tr onclick=getMessage('". $row['Message_id'] ."')>"
-        . "<td class='row1'>" . $row['Expediteur'] . "</td>"
-        . "<td class='row2'>" . $row['Sujet'] . "</td>"
-        . "<td class='row3'>" . $row['Date'] . "</td>"
-        . "</tr>";
+        $string .= "<div><h3>". $row['Sujet']  ."</h3></div>"
+         . "<div id='headMsg'><span><strong>" . $row['Expediteur'] ."</strong></span>"
+         . "<span>". $row['Date']."</span><br>"
+         . "<span>à " . $row['Destinataire'] . "</span></div>"
+         . "<div>" . $row['Message'] . "</div>";
     }
-    $string .="</tbody></table>";
+    $string .="</div>";
 
-    if($string == "<table><tbody></tbody></table>"){
-        $string = "";
-    }
     return $string;
 }
 
