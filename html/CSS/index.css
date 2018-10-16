@@ -12,6 +12,11 @@ main{
     border-right: 1px solid gray;
     height: 100vh;
 }
+
+#lateral p {
+    cursor: pointer;
+}
+
 #content{
     flex: 9;
 }

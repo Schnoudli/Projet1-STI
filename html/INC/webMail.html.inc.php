@@ -9,11 +9,11 @@
     </div>
     <main>
         <div id="lateral">
-            <p>Boite de réception</p>
+            <p onclick="getAllMessage()">Boite de réception</p>
             <p>Messages envoyés</p>
         </div>
         <div id="content">
         </div>
     </main>
-    <script>getMessage()</script>
+    <script>getAllMessage()</script>
 </body>

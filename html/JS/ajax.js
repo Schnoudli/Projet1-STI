@@ -22,8 +22,8 @@ function login() {
     $.post('INC/formSubmit.php',{login : log , password : pass, type : type }, manageReturn);
 };
 
-function getMessage(){
-    $.post('INC/getMessages.php', manageReturn);
+function getAllMessage(){
+    $.post('INC/getAllMessages.php', manageReturn);
 }
 
 function manageReturn(retour) {
