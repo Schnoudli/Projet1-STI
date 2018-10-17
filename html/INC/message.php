@@ -6,7 +6,7 @@
  * Time: 16:28
  */
 
-$string = '<form method="post" action="sendMessages.php">'
+$string = '<form action="javascript:sendMessage()">'
         .'<label for="destinataire">Destinataire</label>'
         .'<input type="text" id="destinataire" name="destinataire" placeholder="destinataire" value="" required><br><br>'
         .'<label for="sujet">Sujet</label>'

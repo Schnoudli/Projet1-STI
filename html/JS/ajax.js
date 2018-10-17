@@ -46,6 +46,15 @@ function newMessage(){
     $.post('INC/message.php', manageReturn);
 }
 
+function returnSendMessage(retour) {
+    if(retour) {
+        alert('Message envoyé');
+    }
+    else {
+        alert('Fail');
+    }
+}
+
 function sendMessage(){
-    $.post('INC/message.php', manageReturn);
+    $.post('INC/sendMessages.php', returnSendMessage);
 }
