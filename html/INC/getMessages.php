@@ -23,10 +23,10 @@ catch(PDOException $e)
 function setupMsg($arr) {
     $string="<div id='contentMsg'>";
     foreach ($arr as $row) {
-        $string .= "<div><h3>". $row['Sujet']  ."</h3></div>"
+        $string .= "<div><h3>". $row['Sujet']  ."</h3></div><hr>"
          . "<div id='headMsg'><span><strong>" . $row['Expediteur'] ."</strong></span>"
-         . "<span>". $row['Date']."</span><br>"
-         . "<span>à " . $row['Destinataire'] . "</span></div>"
+         . "<span style='float: right;'>". $row['Date']."</span><br>"
+         . "<span>à " . $row['Destinataire'] . "</span></div><hr>"
          . "<div>" . $row['Message'] . "</div>";
     }
     $string .="</div>";

@@ -33,8 +33,19 @@ function getMessage(){
 function manageReturn(retour) {
     let json = testeJson(retour);
     $(json[0]).html(json[1]);
-};
+}
 
 function deconnexion(){
-    $.post('INC/deco.php').done(window.location.reload());
-};
+    var r = confirm("Veuillez confirmer votre déconnexion");
+    if (r == true) {
+        $.post('INC/deco.php').done(window.location.reload());
+    }
+}
+
+function newMessage(){
+    $.post('INC/message.php', manageReturn);
+}
+
+function sendMessage(){
+    $.post('INC/message.php', manageReturn);
+}

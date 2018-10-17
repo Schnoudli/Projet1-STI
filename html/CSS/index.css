@@ -30,12 +30,15 @@ main{
 table {
     display: block;
     width: 100%;
+    border-collapse: collapse;
+    margin : 2px;
 }
 tbody {
     display: block;
 }
 tr {
     display: flex;
+    border-bottom: grey 1px solid;
 }
 td {
     padding: 10px;
