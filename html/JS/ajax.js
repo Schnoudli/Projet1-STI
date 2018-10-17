@@ -43,10 +43,12 @@ function deconnexion(){
 }
 
 function newMessage(){
+
     $.post('INC/message.php', manageReturn);
 }
 
 function returnSendMessage(retour) {
+    console.log(retour);
     if(retour) {
         alert('Message envoyé');
     }
@@ -56,5 +58,8 @@ function returnSendMessage(retour) {
 }
 
 function sendMessage(){
-    $.post('INC/sendMessages.php', returnSendMessage);
+    let destinataire = document.getElementById('destinataire').value;
+    let sujet = document.getElementById('sujet').value;
+    let message = document.getElementById('message').value;
+    $.post('INC/sendMessages.php',{destinataire : destinataire , sujet : sujet, message : message }, returnSendMessage);
 }

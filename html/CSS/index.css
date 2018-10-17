@@ -17,6 +17,10 @@ main{
     cursor: pointer;
 }
 
+form {
+    margin: 5px;
+}
+
 #content{
     flex: 9;
 }

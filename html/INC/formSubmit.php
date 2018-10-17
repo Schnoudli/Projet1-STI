@@ -29,7 +29,7 @@ $name = $_POST["login"];
 $password = $_POST["password"];
 
 // Permet de regarder que notre user, ainsi que sont mdp figre dans notre DB
-$result = $file_db->query("SELECT Actif, User_id, Admin FROM Personne WHERE Username='$name' AND Pass='$password'");
+$result = $file_db->query("SELECT Actif, User_id, Admin, Username FROM Personne WHERE Username='$name' AND Pass='$password'");
 
 // Nous indique que le login et mot de passe tapé ne match pas
 function chargeTemplate(){
