@@ -28,29 +28,21 @@ catch(PDOException $e)
 //echo ($expediteur = $_POST["expediteur"]). "<br/>";
 //echo ($destinataire_id = $_POST["destinataire_id"]). "<br/>";
 /***** TODO a enlever!!! seulement pour test!! *****/
-$_SESSION["user_id"] = 1;
-$_SESSION["Username"] = "andre.jacquemond";
-
-echo ($destinataire = $_POST["destinataire"]). "<br/>";
-echo ($sujet = $_POST["sujet"]). "<br/>";
-echo ($message = $_POST["message"]). "<br/>";
+//$_SESSION["user_id"] = 1;
+//$_SESSION["username"] = "andre.jacquemond";
 
 date_default_timezone_set('UTC');
-echo date("Y-m-d H:i:s"). "<br/>";
 
 $sql = "SELECT User_id FROM Personne WHERE Username='$destinataire';";
 $result = $file_db->exec($sql);
 
 $dest_id = $result["User_id"];
-echo "Dest_id: " . $dest_id .  "<br/>";
 
 $sql = "INSERT INTO Message VALUES (NULL,'" . date("Y-m-d H:i:s") ."',
-'" . $_SESSION["Username"] . "','" . $destinataire . "','" . $sujet . "',\"" . $message . "\",0);";
+'" . $_SESSION["username"] . "','" . $destinataire . "','" . $sujet . "',\"" . $message . "\",0);";
 
-echo $sql . "<br/>";
 $result = $file_db->exec($sql);
 
 $sql = "INSERT INTO Messages VALUES (NULL, '". $_SESSION["user_id"] ."', '". $dest_id ."', '". $file_db->lastInsertId() ."');";
 $result = $file_db->exec($sql);
 
-echo $file_db->lastInsertId() . "<br/>";

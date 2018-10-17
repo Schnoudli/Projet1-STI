@@ -51,6 +51,7 @@ function checkLogin($arr) {
         else{
             // Permet de setter les variables de session utile pour toute la connection
             $_SESSION["user_id"] = $row['User_id'];
+            $_SESSION["username"] = $row['Username'];
             if(empty($row['Admin'])){
                 $_SESSION["admin"] = false;
             }
