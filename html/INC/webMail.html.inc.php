@@ -4,7 +4,7 @@
 <body>
     <div id="top">
         <input type="button" value="Changer de mot de passe">
-        <input type="button" value="Nouveau message">
+        <input type="button" value="Nouveau message" onclick="nouveauMessage()">
         <input type="button" value="Déconnexion" onclick="deconnexion()" >
     </div>
     <main>

@@ -5,7 +5,7 @@
  * Date: 12.10.2018
  * Time: 18:31
  */
-
+session_start();
 /***********    Phase de connection à la DB     ************/
 try
 {
@@ -24,9 +24,13 @@ catch(PDOException $e)
 /***********    Connection à la DB OK     ************/
 
 // Permet de récupérer le message désiré
-echo ($expediteur_id = $_POST["expediteur_id"]). "<br/>";
-echo ($expediteur = $_POST["expediteur"]). "<br/>";
-echo ($destinataire_id = $_POST["destinataire_id"]). "<br/>";
+//echo ($expediteur_id = $_POST["expediteur_id"]). "<br/>";
+//echo ($expediteur = $_POST["expediteur"]). "<br/>";
+//echo ($destinataire_id = $_POST["destinataire_id"]). "<br/>";
+/***** TODO a enlever!!! seulement pour test!! *****/
+$_SESSION["user_id"] = 1;
+$_SESSION["Username"] = "andre.jacquemond";
+
 echo ($destinataire = $_POST["destinataire"]). "<br/>";
 echo ($sujet = $_POST["sujet"]). "<br/>";
 echo ($message = $_POST["message"]). "<br/>";
@@ -34,14 +38,19 @@ echo ($message = $_POST["message"]). "<br/>";
 date_default_timezone_set('UTC');
 echo date("Y-m-d H:i:s"). "<br/>";
 
+$sql = "SELECT User_id FROM Personne WHERE Username='$destinataire';";
+$result = $file_db->exec($sql);
+
+$dest_id = $result["User_id"];
+echo "Dest_id: " . $dest_id .  "<br/>";
+
 $sql = "INSERT INTO Message VALUES (NULL,'" . date("Y-m-d H:i:s") ."',
-'" . $expediteur . "','" . $destinataire . "','" . $sujet . "',\"" . $message . "\",0);";
+'" . $_SESSION["Username"] . "','" . $destinataire . "','" . $sujet . "',\"" . $message . "\",0);";
 
 echo $sql . "<br/>";
 $result = $file_db->exec($sql);
 
-$sql = "SELECT last_insert_rowid();";
-
+$sql = "INSERT INTO Messages VALUES (NULL, '". $_SESSION["user_id"] ."', '". $dest_id ."', '". $file_db->lastInsertId() ."');";
 $result = $file_db->exec($sql);
 
-echo $result. "<br/>";
+echo $file_db->lastInsertId() . "<br/>";
