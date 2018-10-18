@@ -5,6 +5,9 @@
  * Date: 02/10/2018
  * Time: 08:54
  */
+
+require_once "manageLayout.php";
+
 session_start();
 /***********    Phase de connection à la DB     ************/
 try
@@ -53,12 +56,12 @@ function checkLogin($arr) {
             $_SESSION["user_id"] = $row['User_id'];
             $_SESSION["username"] = $row['Username'];
             if(empty($row['Admin'])){
-                $_SESSION["admin"] = false;
+                $_SESSION["admin"] = 0;
             }
             else{
-                $_SESSION["admin"] = true;
+                $_SESSION["admin"] = 1;
             }
-            array_push($arrToSend, "body", implode("\n", file('webMail.html.inc.php'))) ;
+            array_push($arrToSend, "body", manageLayout()) ;
             echo json_encode($arrToSend);
             $bool = false;
         }

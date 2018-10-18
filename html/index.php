@@ -6,6 +6,7 @@
  * Time: 10:54
  */
 
+require_once 'INC/manageLayout.php';
 session_start();?>
 
 <!DOCTYPE html>
@@ -17,10 +18,7 @@ session_start();?>
     <script type="text/javascript" src="JS/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="JS/ajax.js"></script>
 </head>
-<?php if (isset($_SESSION["user_id"])){
-    require_once "INC/webMail.html.inc.php";
-}
-else{
-    require_once "INC/layout.html.inc.php";
-}?>
+<?php
+    echo manageLayout();
+?>
 </html>

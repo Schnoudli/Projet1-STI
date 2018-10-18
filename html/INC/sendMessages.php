@@ -33,21 +33,21 @@ catch(PDOException $e)
 $destinataire = $_POST['destinataire'];
 $sujet = $_POST['sujet'];
 $message = $_POST['message'];
-$username = $_SESSION["username"];
+$expediteur = $_SESSION["user_id"];
 
 date_default_timezone_set('UTC');
 
 $sql = "SELECT User_id FROM Personne WHERE Username='$destinataire';";
 $result = $file_db->query($sql);
 
-$dest_id = $result["User_id"];
+$dest_id = $result;
 
 if($dest_id){
-    $sql = "INSERT INTO Message VALUES (NULL,'" . date("Y-m-d H:i:s") ."', '" . $username . "','" . $destinataire . "','" . $sujet . "',\"" . $message . "\",0);";
+    $sql = "INSERT INTO Message VALUES (NULL,'" . date("Y-m-d H:i:s") ."', '" . $expediteur . "','" . $destinataire . "','" . $sujet . "',\"" . $message . "\",0);";
 
     $result = $file_db->exec($sql);
-
-    $sql = "INSERT INTO Messages VALUES (NULL, '". $_SESSION["user_id"] ."', '". $dest_id ."', '". $file_db->lastInsertId() ."');";
+    /***** TODO erreur PHP Catchable fatal error:  Object of class PDOStatement could not be converted to string *****/
+    $sql = "INSERT INTO Messages VALUES (NULL, '". $expediteur ."', '". $dest_id ."', '". $file_db->lastInsertId() ."');";
     $result = $file_db->exec($sql);
 }
 else {
