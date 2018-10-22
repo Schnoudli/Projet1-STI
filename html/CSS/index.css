@@ -4,6 +4,9 @@
     padding: 10px;
     border-bottom: 1px solid gray;
 }
+#top input{
+    margin: 2px;
+}
 main{
     display: flex;
 }
