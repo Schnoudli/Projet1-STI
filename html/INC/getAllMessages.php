@@ -43,16 +43,22 @@ function setupMsg($arr) {
 /***********    Connexion à la DB OK     ************/
 $user = $_SESSION["user_id"];
 // Permet de récupérer tout les messages où l'on est le destinataire
-$result = $file_db->query("SELECT * FROM Messages INNER JOIN Message ON Messages.Message_id = Message.Message_id WHERE Messages.Destinataire='$user'");
+$result = $file_db->query("SELECT * FROM Messages INNER JOIN Message ON Messages.Message_id = Message.Message_id WHERE Messages.Destinataire='$user' ORDER BY Date DESC");
 
 // Affichage des différents messages
-
+usort($result, 'date_compare');
 $msg = setupMsg($result);
 
 $arrToSend = array();
 array_push($arrToSend, '#content', $msg ? $msg : 'Pas de message') ;
 echo json_encode($arrToSend);
 
+function date_compare($a, $b)
+{
+    $t1 = strtotime($a['Date']);
+    $t2 = strtotime($b['Date']);
+    return $t1 - $t2;
+}
 
 /***********    Déconnexion de la DB        ************/
 $file_db = null;
