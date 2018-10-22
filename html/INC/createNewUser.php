@@ -33,8 +33,8 @@ if($_SESSION['admin']) {
     else{
         $firstname = $_POST["firstname"];
         $lastname = $_POST["lastname"];
-        $isActif = $_POST["isActif"] ? 0 : 1;
-        $isAdmin = $_POST["isAdmin"] ? 0 : 1;
+        $isActif = $_POST["isActif"]==='true' ? 1 : 0;
+        $isAdmin = $_POST["isAdmin"]==='true' ? 1 :  0;
 
         $username = $firstname.'.'.$lastname;
         $username = strtolower($username);
