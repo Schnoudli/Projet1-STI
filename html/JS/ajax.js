@@ -94,7 +94,7 @@ function changePass() {
     $.post('INC/changePassLayout.php', manageReturn);
 }
 
-function alertProblem(str) {
+function alertInfo(str) {
     alert(str);
 }
 
@@ -104,9 +104,39 @@ function changePassUser() {
     let newPassCheck = $("#newPassCheck")[0].value;
 
     if(newPass !== newPassCheck) {
-        alertProblem("Veuillez taper le même mot de passe!");
+        alertInfo("Veuillez taper le même mot de passe!");
     }
     else {
-        $.post('INC/updatePassword.php', {oldPass: oldPass, newPass: newPass, newPassCheck: newPassCheck}, alertProblem);
+        $.post('INC/updatePassword.php', {oldPass: oldPass, newPass: newPass, newPassCheck: newPassCheck}, alertInfo);
     }
+}
+
+function createNewUserLayout(){
+    $.post('INC/createNewUserLayout.php', manageReturn);
+}
+
+
+function createNewUser(){
+    let firstname = $('#firstname')[0].value;
+    let lastname = $('#lastname')[0].value;
+    let pass = $("#pass")[0].value;
+    let passCheck = $("#passCheck")[0].value;
+    let isActif = $('#isActif')[0].checked;
+    let isAdmin = $('#isAdmin')[0].checked;
+
+    if(pass !== passCheck) {
+        alertInfo("Veuillez taper le même mot de passe!");
+    }
+    else {
+        $.post('INC/createNewUser.php',{firstname:firstname, lastname:lastname, pass:pass, passCheck:passCheck, isActif:isActif, isAdmin:isAdmin}, alertInfo);
+    }
+}
+
+function updateNewUsername() {
+    let firstname = $('#firstname')[0].value;
+    let lastname = $('#lastname')[0].value;
+
+    let str = firstname + '.' + lastname;
+    str = str.toLowerCase();
+    $('#newUsername').html(str);
 }
