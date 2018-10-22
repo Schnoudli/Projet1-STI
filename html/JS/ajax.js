@@ -74,3 +74,23 @@ function supressMsg(idMsg) {
 function responseMsg(idMsg = ''){
     $.post('INC/message.php', {idMsg : idMsg}, manageReturn);
 }
+
+function modifUser() {
+    $.post('INC/modifUserLayout.php', manageReturn);
+}
+
+function updateUser(userId) {
+    let arrayTemp = document.getElementsByClassName(userId);
+    let isActif = arrayTemp[0].checked;
+    let newMdp = arrayTemp[1].value;
+    let isAdmin = arrayTemp[2].checked;
+    $.post('INC/manageUser.php', {context: 'update', userId: userId, isActif: isActif, newMdp: newMdp, isAdmin: isAdmin}, modifUser());
+}
+
+
+function deleteUser(userId) {
+    var r = confirm("Voulez-vous vraiment supprimer cet utilisateur?");
+    if (r == true) {
+        $.post('INC/manageUser.php', {context: 'delete', userId: userId}, modifUser());
+    }
+}

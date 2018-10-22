@@ -9,6 +9,7 @@ main{
 }
 #lateral{
     flex: 1;
+    border-right: 1px solid gray;
 }
 
 #lateral p {
@@ -33,8 +34,6 @@ table {
     display: block;
     width: 100%;
     border-collapse: collapse;
-    margin : 2px;
-    border-left: 1px solid gray;
 }
 tbody {
     display: block;
@@ -78,4 +77,14 @@ textarea {
 #headMsgTitle input{
     flex: 1;
     margin: 10px;
+}
+
+tr.formModifUser {
+    padding: 5px 2px;
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+
+.formModifUser td {
+    flex: 1;
 }

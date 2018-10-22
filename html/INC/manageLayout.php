@@ -9,9 +9,8 @@ function manageLayout(){
 $string = '';
 if (isset($_SESSION["user_id"])){
     $string .= '<div id="top">';
-    print_r($_SESSION, true);
     if($_SESSION["admin"] == 1) {
-        $string .= '<input type="button" value="Modification utilisateur">';
+        $string .= '<input type="button" value="Modification utilisateur" onclick="modifUser()">';
     }
     $string .= '<input type="button" value="Changer de mot de passe">'
             .'<input type="button" value="Nouveau message" onclick="newMessage()">'
