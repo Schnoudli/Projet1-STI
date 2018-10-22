@@ -36,7 +36,7 @@ if(isset($_POST) && !empty($_POST['idMsg'])){
         $sujet = $row['Sujet'];
         $value .= '&#13;&#10;&#13;&#10;&#13;&#10;&#13;&#10;Le '
             .$row['Date']. ', '.$row['Expediteur'].'a écrit :'
-            .'&#13;&#10; &#13;&#10;'
+            .'&#13;&#10;'
             . $row['Message'];
     }
     /***********    Déconnexion de la DB        ************/
