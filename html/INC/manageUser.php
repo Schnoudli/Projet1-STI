@@ -26,9 +26,9 @@ if($_SESSION['admin']) {
 
     if($_POST['context']==='update'){
         $userId = $_POST['userId'];
-        $isActif = $_POST['isActif'];
         $newMdp = $_POST['newMdp'];
-        $isAdmin = $_POST['isAdmin'];
+        $isActif = $_POST["isActif"]==='true' ? 1 : 0;
+        $isAdmin = $_POST["isAdmin"]==='true' ? 1 :  0;
         $result = $file_db->query("UPDATE Personne SET Actif='$isActif', Pass='$newMdp', Admin='$isAdmin' WHERE User_id ='$userId'");
     }
     elseif ($_POST['context']==='delete'){
