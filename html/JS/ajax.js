@@ -66,7 +66,7 @@ function sendMessage(){
 function supressMsg(idMsg) {
     var r = confirm("Voulez-vous vraiment supprimer ce message?");
     if (r == true) {
-        $.post('INC/suppressMsg.php', {idMsg : idMsg}).done(location.reload());
+        $.post('INC/deleteMessage.php', {idMsg : idMsg}).done(location.reload());
     }
 }
 
