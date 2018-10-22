@@ -3,21 +3,16 @@ function testeJson(json) {
     let parsed;
     try {
         parsed = JSON.parse(json);
-        /*parsed = 'C\'est bien du JSON dont les clés sont : <hr>'  //enlever dans la phase 2.1
-         + Object.keys(parsed).join(' - ')
-        +'<hr>'
-        + json;*/
     }
     catch (e) {
-        //parsed = json;  //phase01
         parsed = {"jsonError": {'error': e, 'json': json}};
     }
     return parsed;
 };
 
 function login() {
-    let log = document.getElementById('login').value;
-    let pass = document.getElementById('password').value;
+    let log = $('#login').value;
+    let pass = $('#password').value;
     let type = 'login';
     $.post('INC/formSubmit.php',{login : log , password : pass, type : type }, manageReturn);
 };
@@ -57,9 +52,9 @@ function returnSendMessage(retour) {
 }
 
 function sendMessage(){
-    let destinataire = document.getElementById('destinataire').value;
-    let sujet = document.getElementById('sujet').value;
-    let message = document.getElementById('message').value;
+    let destinataire = $('#destinataire').value;
+    let sujet = $('#sujet').value;
+    let message = $('#message').value;
     $.post('INC/sendMessages.php',{destinataire : destinataire , sujet : sujet, message : message }, returnSendMessage);
 }
 
@@ -80,7 +75,7 @@ function modifUser() {
 }
 
 function updateUser(userId) {
-    let arrayTemp = document.getElementsByClassName(userId);
+    let arrayTemp = $('.'+userId);
     let isActif = arrayTemp[0].checked;
     let newMdp = arrayTemp[1].value;
     let isAdmin = arrayTemp[2].checked;
@@ -91,6 +86,27 @@ function updateUser(userId) {
 function deleteUser(userId) {
     var r = confirm("Voulez-vous vraiment supprimer cet utilisateur?");
     if (r == true) {
-        $.post('INC/manageUser.php', {context: 'delete', userId: userId}, modifUser());
+        $.post('INC/manageUser.php', {context: 'delete', userId: userId}, modifUser);
+    }
+}
+
+function changePass() {
+    $.post('INC/changePassLayout.php', manageReturn);
+}
+
+function alertProblem(str) {
+    alert(str);
+}
+
+function changePassUser() {
+    let oldPass = $("#oldPass")[0].value;
+    let newPass = $("#newPass")[0].value;
+    let newPassCheck = $("#newPassCheck")[0].value;
+
+    if(newPass !== newPassCheck) {
+        alertProblem("Veuillez taper le même mot de passe!");
+    }
+    else {
+        $.post('INC/updatePassword.php', {oldPass: oldPass, newPass: newPass, newPassCheck: newPassCheck}, alertProblem);
     }
 }

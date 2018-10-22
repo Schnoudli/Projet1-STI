@@ -19,6 +19,9 @@ main{
 form {
     margin: 5px;
 }
+form label, form input {
+    margin: 2px;
+}
 
 #content{
     flex: 9;

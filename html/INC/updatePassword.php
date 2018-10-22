@@ -6,6 +6,7 @@
  * Time: 18:38
  */
 
+session_start();
 /***********    Phase de connection à la DB     ************/
 try
 {
@@ -23,22 +24,28 @@ catch(PDOException $e)
 
 /***********    Connection à la DB OK     ************/
 
-// Permet de récupérer l'id de l'utilisateur suivant qu'on soit admin ou non
-/*if($_SESSION["admin"] === NULL) {
-    $user = $_SESSION["user_id"];
-}
-// Récupére la variable dans la page accessible uniquement aux admins
-else{
-    $user = $user_id;
-}
-*/
-    $user_id = $_POST["user_id"];
-    $password = $_POST["password"];
+    $user_id =  $_SESSION["user_id"];
+    $oldPass = $_POST["oldPass"];
+    $newPass = $_POST["newPass"];
+    $newPassCheck = $_POST["newPassCheck"];
 
-echo $user_id . "<br/>";
-echo $password . "<br/>";
+    if($newPass !== $newPassCheck){
+        echo "Veuillez taper le même mot de passe!";
+    }
+    else{
+        $dbPass = '';
+        $result = $file_db->query("SELECT Pass FROM Personne WHERE User_id ='" . $user_id . "';");
+        foreach ($result as $row) {
+            $dbPass = $row['Pass'];
+        }
+        if($oldPass == $dbPass){
+            $result = $file_db->query("UPDATE Personne SET Pass = '" . $newPass . "' WHERE User_id ='" . $user_id . "';");
+            echo "Mot de passe mis à jour avec succès";
+        }
+        else {
+            echo "Mot de passe erroné!";
+        }
+    }
 
-$sql = "UPDATE Personne SET Pass = '" . $password . "' WHERE User_id = " . $user_id . ";";
-
-// Mise à jour du password
-$result = $file_db->exec($sql);
+/***********    Déconnexion de la DB        ************/
+$file_db = null;
