@@ -32,8 +32,9 @@ function manageReturn(retour) {
 
 function deconnexion(){
     var r = confirm("Veuillez confirmer votre déconnexion");
-    if (r == true) {
-        $.post('INC/deco.php').done(location.reload());
+    if (r === true) {
+        $.post('INC/deco.php');
+        $.post('INC/index.php').done(location.reload());
     }
 }
 
