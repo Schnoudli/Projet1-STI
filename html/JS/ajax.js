@@ -11,8 +11,8 @@ function testeJson(json) {
 };
 
 function login() {
-    let log = $('#login').value;
-    let pass = $('#password').value;
+    let log = $('#login')[0].value;
+    let pass = $('#password')[0].value;
     let type = 'login';
     $.post('INC/formSubmit.php',{login : log , password : pass, type : type }, manageReturn);
 };
@@ -52,9 +52,9 @@ function returnSendMessage(retour) {
 }
 
 function sendMessage(){
-    let destinataire = $('#destinataire').value;
-    let sujet = $('#sujet').value;
-    let message = $('#message').value;
+    let destinataire = $('#destinataire')[0].value;
+    let sujet = $('#sujet')[0].value;
+    let message = $('#message')[0].value;
     $.post('INC/sendMessages.php',{destinataire : destinataire , sujet : sujet, message : message }, returnSendMessage);
 }
 
