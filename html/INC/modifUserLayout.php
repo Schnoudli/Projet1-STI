@@ -28,10 +28,10 @@ if($_SESSION['admin']) {
         $string = '';
         foreach ($arr as $row) {
             $string .='<table><tr class="formModifUser">'
-                .'<td><label for="checkActif">Actif : </label>'.'<input type="checkbox" class="'.$row['User_id'].'" id="checkActif"'.($row['Actif'] ? ' checked' : ' ').'></td>'
+                .'<td><label>Actif : </label>'.'<input type="checkbox" class="'.$row['User_id'].'"'.($row['Actif'] ? ' checked' : ' ').'></td>'
                 .'<td>Nom d\'utilisateur :<br>'.$row['Username'].'</td>'
-                .'<td><label for="mdp">Mot de passe : </label>' . '<input type="password" class="'.$row['User_id'].'" value="'.$row['Pass'].'" required></td>'
-                .'<td><label for="checkAdmin">Admin : </label>'.'<input type="checkbox" class="'.$row['User_id'].'" id="checkAdmin"'. ($row['Admin'] ? ' checked' : ' ') .'></td>'
+                .'<td><label>Mot de passe : </label>' . '<input type="password" class="'.$row['User_id'].'" value="'.$row['Pass'].'" required></td>'
+                .'<td><label >Admin : </label>'.'<input type="checkbox" class="'.$row['User_id'].'"'. ($row['Admin'] ? ' checked' : ' ') .'></td>'
                 .'<td><input type="button" value="Editer utilisateur" onclick="updateUser('.$row['User_id'].')"></td>'
                 .'<td><input type="button" value="Supprimer utilisateur" onclick="deleteUser('.$row['User_id'].')"></td>'
                 .'</tr></table>';
