@@ -22,10 +22,14 @@ catch(PDOException $e)
 
 /***********    Connexion à la DB OK     ************/
 $user = $_SESSION["user_id"];
+$username = $_SESSION["username"];
 $idMsg = $_POST['idMsg'];
 
-$result = $file_db->query("DELETE FROM Messages WHERE Message_id='$idMsg'");
-$result = $file_db->query("DELETE FROM Message WHERE Message_id='$idMsg'");
+$result = $file_db->query("DELETE FROM Messages WHERE Messages.Message_id='$idMsg' AND Messages.Destinataire='$user';");
+// TODO: c'est normal qu'on ai deux fois la requêtes? supprimer un message de messages, c'est normal si l'on veux plus
+// dans la réception, mais l'autre c'était pour garder une trace, ou simplement voir les envoyé (mais c'est pas demandé,
+// et les supprimer impliquerais de checker qu'il ne soit plus dans messages).
+$result = $file_db->query("DELETE FROM Message WHERE Message.Message_id='$idMsg' AND Message.Destinataire='$username';");
 
 
 
