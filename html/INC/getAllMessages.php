@@ -46,7 +46,6 @@ $user = $_SESSION["user_id"];
 $result = $file_db->query("SELECT * FROM Messages INNER JOIN Message ON Messages.Message_id = Message.Message_id WHERE Messages.Destinataire='$user' ORDER BY Date DESC");
 
 // Affichage des différents messages
-usort($result, 'date_compare');
 $msg = setupMsg($result);
 
 $arrToSend = array();

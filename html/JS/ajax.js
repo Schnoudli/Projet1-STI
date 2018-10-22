@@ -33,8 +33,7 @@ function manageReturn(retour) {
 function deconnexion(){
     var r = confirm("Veuillez confirmer votre déconnexion");
     if (r === true) {
-        $.post('INC/deco.php');
-        $.post('INC/index.php').done(location.reload());
+        $.post('INC/deco.php', afterReload);
     }
 }
 
@@ -59,10 +58,17 @@ function sendMessage(){
     $.post('INC/sendMessages.php',{destinataire : destinataire , sujet : sujet, message : message }, returnSendMessage);
 }
 
+function afterReload(str){
+    var r = confirm(str);
+    if (r || !r) {
+        location.reload();
+    }
+}
+
 function supressMsg(idMsg) {
     var r = confirm("Voulez-vous vraiment supprimer ce message?");
     if (r == true) {
-        $.post('INC/deleteMessage.php', {idMsg : idMsg}, alertInfo()).done(location.reload());
+        $.post('INC/deleteMessage.php', {idMsg : idMsg}, alertInfo);
     }
 }
 
@@ -83,7 +89,6 @@ function updateUser(userId) {
     $.post('INC/manageUser.php', {context: 'update', userId: userId, isActif: isActif, newMdp: newMdp, isAdmin: isAdmin}, modifUser());
 }
 
-
 function deleteUser(userId) {
     var r = confirm("Voulez-vous vraiment supprimer cet utilisateur?");
     if (r == true) {
@@ -93,10 +98,6 @@ function deleteUser(userId) {
 
 function changePass() {
     $.post('INC/changePassLayout.php', manageReturn);
-}
-
-function alertInfo(str) {
-    alert(str);
 }
 
 function changePassUser() {
@@ -116,6 +117,9 @@ function createNewUserLayout(){
     $.post('INC/createNewUserLayout.php', manageReturn);
 }
 
+function alertInfo(str){
+    alert(str);
+}
 
 function createNewUser(){
     let firstname = $('#firstname')[0].value;
