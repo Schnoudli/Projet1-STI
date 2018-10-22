@@ -23,11 +23,13 @@ catch(PDOException $e)
 function setupMsg($arr) {
     $string="<div id='contentMsg'>";
     foreach ($arr as $row) {
-        $string .= "<div><h3>". $row['Sujet']  ."</h3></div><hr>"
-         . "<div id='headMsg'><span><strong>" . $row['Expediteur'] ."</strong></span>"
-         . "<span style='float: right;'>". $row['Date']."</span><br>"
-         . "<span>à " . $row['Destinataire'] . "</span></div><hr>"
-         . "<div>" . $row['Message'] . "</div>";
+        $string .= "<div  id='headMsgTitle'><h3>". $row['Sujet']  ."</h3>"
+            . "<input type='button' onclick=responseMsg(". $row['Message_id'] .") value='Répondre'><input type='button' onclick=supressMsg(". $row['Message_id'] .") value='Supprimer'></div>"
+            . "<hr>"
+            . "<div id='headMsg'><span><strong>" . $row['Expediteur'] ."</strong></span>"
+            . "<span style='float: right;'>". $row['Date']."</span><br>"
+            . "<span>à " . $row['Destinataire'] . "</span></div><hr>"
+            . "<div>" . $row['Message'] . "</div>";
     }
     $string .="</div>";
 
@@ -36,15 +38,16 @@ function setupMsg($arr) {
 
 /***********    Connexion à la DB OK     ************/
 $user = $_SESSION["user_id"];
+$idMsg = $_POST['idMsg'];
 // Permet de récupérer tout les messages où l'on est le destinataire
-$result = $file_db->query("SELECT * FROM Messages INNER JOIN Message ON Messages.Message_id = Message.Message_id WHERE Messages.Destinataire='$user'");
+$result = $file_db->query("SELECT * FROM Messages INNER JOIN Message ON Messages.Message_id = Message.Message_id WHERE Messages.Destinataire='$user' AND Messages.Message_id='$idMsg' ");
 
-// Affichage des différents messages
+// Affichage du message
 
 $msg = setupMsg($result);
 
 $arrToSend = array();
-array_push($arrToSend, '#content', $msg ? $msg : 'Pas de message') ;
+array_push($arrToSend, '#content', $msg) ;
 echo json_encode($arrToSend);
 
 

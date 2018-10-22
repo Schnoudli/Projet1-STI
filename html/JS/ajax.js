@@ -26,8 +26,8 @@ function getAllMessage(){
     $.post('INC/getAllMessages.php', manageReturn);
 }
 
-function getMessage(){
-    $.post('INC/getMessages.php', manageReturn);
+function getMessage(idMsg){
+    $.post('INC/getMessages.php', {idMsg: idMsg}, manageReturn);
 }
 
 function manageReturn(retour) {
@@ -43,7 +43,6 @@ function deconnexion(){
 }
 
 function newMessage(){
-
     $.post('INC/message.php', manageReturn);
 }
 
@@ -62,4 +61,16 @@ function sendMessage(){
     let sujet = document.getElementById('sujet').value;
     let message = document.getElementById('message').value;
     $.post('INC/sendMessages.php',{destinataire : destinataire , sujet : sujet, message : message }, returnSendMessage);
+}
+
+function supressMsg(idMsg) {
+    var r = confirm("Voulez-vous vraiment supprimer ce message?");
+    if (r == true) {
+        $.post('INC/suppressMsg.php', {idMsg : idMsg}).done(location.reload());
+    }
+}
+
+
+function responseMsg(idMsg = ''){
+    $.post('INC/message.php', {idMsg : idMsg}, manageReturn);
 }

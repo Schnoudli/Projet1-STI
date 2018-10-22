@@ -24,10 +24,12 @@ catch(PDOException $e)
 function setupMsg($arr) {
     $string="<table><tbody>";
     foreach ($arr as $row) {
-        $string .= "<tr onclick=getMessage('". $row['Message_id'] ."')>"
-        . "<td class='row1'>" . $row['Expediteur'] . "</td>"
-        . "<td class='row2'>" . $row['Sujet'] . "</td>"
-        . "<td class='row3'>" . $row['Date'] . "</td>"
+        $string .= "<tr>"
+        . "<td class='row1' onclick=getMessage(". $row['Message_id'] .")>" . $row['Expediteur'] . "</td>"
+        . "<td class='row2' onclick=getMessage(". $row['Message_id'] .")>" . $row['Sujet'] . "</td>"
+        . "<td class='row3' onclick=getMessage(". $row['Message_id'] .")>" . $row['Date'] . "</td>"
+        . "<td class='row4'><input type='button' onclick=responseMsg(". $row['Message_id'] .") value='Répondre'></td>"
+        . "<td class='row5'><input type='button' onclick=supressMsg(". $row['Message_id'] .") value='Supprimer'></td>"
         . "</tr>";
     }
     $string .="</tbody></table>";

@@ -9,8 +9,6 @@ main{
 }
 #lateral{
     flex: 1;
-    border-right: 1px solid gray;
-    height: 100vh;
 }
 
 #lateral p {
@@ -36,6 +34,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin : 2px;
+    border-left: 1px solid gray;
 }
 tbody {
     display: block;
@@ -57,6 +56,26 @@ td {
 .row3 {
     flex: 2;
 }
+.row4, .row5 {
+    flex: 1;
+}
 #contentMsg{
     padding-left: 10px;
+}
+
+textarea {
+    margin : 10px;
+}
+
+#headMsgTitle {
+    display: flex;
+}
+
+#headMsgTitle h3{
+    flex: 10;
+}
+
+#headMsgTitle input{
+    flex: 1;
+    margin: 10px;
 }
