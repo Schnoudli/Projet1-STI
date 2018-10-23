@@ -21,7 +21,6 @@ if (isset($_SESSION["user_id"])){
             .'<main>'
             .'<div id="lateral">'
             .'<p onclick="getAllMessage()">Boite de réception</p>'
-            .'<p>Messages envoyés</p>'
             .'</div>'
             .'<div id="content">'
             .'</div>'
