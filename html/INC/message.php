@@ -33,7 +33,7 @@ if(isset($_POST) && !empty($_POST['idMsg'])){
     $result = $file_db->query("SELECT * FROM Messages INNER JOIN Message ON Messages.Message_id = Message.Message_id WHERE Messages.Destinataire='$user' AND Messages.Message_id='$idMsg' ");
     foreach ($result as $row) {
         $destinataire = $row['Expediteur'];
-        $sujet = $row['Sujet'];
+        $sujet = 'RE: '.$row['Sujet'];
         $value .= '&#13;&#10;&#13;&#10;&#13;&#10;&#13;&#10;Le '
             .$row['Date']. ', '.$row['Expediteur'].'a écrit :'
             .'&#13;&#10;'

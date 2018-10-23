@@ -42,12 +42,15 @@ function newMessage(){
 }
 
 function returnSendMessage(retour) {
-    console.log(retour);
-    if(retour) {
-        alert('Message envoyé');
+    let json = testeJson(retour);
+    if(json[0]== 1) {
+        var r = confirm(json[1]);
+        if (r || !r) {
+            responseMsg();
+        }
     }
     else {
-        alert('Fail');
+        alert(json[1]);
     }
 }
 

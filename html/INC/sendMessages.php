@@ -23,35 +23,46 @@ catch(PDOException $e)
 
 /***********    Connection à la DB OK     ************/
 
-// Permet de récupérer le message désiré
-//echo ($expediteur_id = $_POST["expediteur_id"]). "<br/>";
-//echo ($expediteur = $_POST["expediteur"]). "<br/>";
-//echo ($destinataire_id = $_POST["destinataire_id"]). "<br/>";
-/***** TODO a enlever!!! seulement pour test!! *****/
-//$_SESSION["user_id"] = 1;
-//$_SESSION["Username"] = "andre.jacquemond";
-$destinataire = $_POST['destinataire'];
+$dest_name = strTolower($_POST['destinataire']);
 $sujet = $_POST['sujet'];
 $message = $_POST['message'];
-$expediteur = $_SESSION["user_id"];
+$expediteur_id = $_SESSION["user_id"];
+$dest_id_db = '';
+$arrToSend = array();
 
 date_default_timezone_set('UTC');
 
-$sql = "SELECT User_id FROM Personne WHERE Username='$destinataire';";
+// Pour le destinataire
+$sql = "SELECT User_id, Username FROM Personne WHERE Username='$dest_name';";
 $result = $file_db->query($sql);
+foreach ($result as $row) {
+    $dest_id_db = $row['User_id'];
+    $dest_name_db = strTolower($row['Username']);
+}
 
-$dest_id = $result;
+// Pour l'expediteur
+$sql = "SELECT Username FROM Personne WHERE User_id='$expediteur_id';";
+$result = $file_db->query($sql);
+foreach ($result as $row) {
+    $expediteur_name_db =  strTolower($row['Username']);
+}
 
-if($dest_id){
-    $sql = "INSERT INTO Message VALUES (NULL,'" . date("Y-m-d H:i:s") ."', '" . $expediteur . "','" . $destinataire . "','" . $sujet . "',\"" . $message . "\",0);";
-
+// Verif du destinataire existant
+if($dest_name == $dest_name_db && $dest_id_db){
+// Remplissage de la table Message
+    $sql = "INSERT INTO Message  (Date, Expediteur, Destinataire, Sujet, Message, Lu) VALUES ('" . date("Y-m-d H:i:s") ."', '" . $expediteur_name_db . "','" . $dest_name . "','" . $sujet . "',\"" . $message . "\",0);";
     $result = $file_db->exec($sql);
-    /***** TODO erreur PHP Catchable fatal error:  Object of class PDOStatement could not be converted to string *****/
-    $sql = "INSERT INTO Messages VALUES (NULL, '". $expediteur ."', '". $dest_id ."', '". $file_db->lastInsertId() ."');";
+
+// Remplissage de la table Messages
+    $sql = "INSERT INTO Messages (Expediteur, Destinataire, Message_id) VALUES ('". $expediteur_id ."', '". $dest_id_db ."', '". $file_db->lastInsertId() ."');";
     $result = $file_db->exec($sql);
+
+    array_push($arrToSend, "1", "Message envoyé!") ;
+    echo json_encode($arrToSend);
 }
 else {
-    echo $dest_id;
+    array_push($arrToSend, "0", "Ce destinataire n'existe pas!") ;
+    echo json_encode($arrToSend);
 }
 /***********    Déconnexion de la DB        ************/
 $file_db = null;
