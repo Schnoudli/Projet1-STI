@@ -8,14 +8,18 @@ function testeJson(json) {
         parsed = {"jsonError": {'error': e, 'json': json}};
     }
     return parsed;
-};
+}
+
+function alertInfo(str){
+    alert(str);
+}
 
 function login() {
     let log = $('#login')[0].value;
     let pass = $('#password')[0].value;
     let type = 'login';
     $.post('INC/formSubmit.php',{login : log , password : pass, type : type }, manageReturn);
-};
+}
 
 function getAllMessage(){
     $.post('INC/getAllMessages.php', manageReturn);
@@ -118,10 +122,6 @@ function changePassUser() {
 
 function createNewUserLayout(){
     $.post('INC/createNewUserLayout.php', manageReturn);
-}
-
-function alertInfo(str){
-    alert(str);
 }
 
 function createNewUser(){

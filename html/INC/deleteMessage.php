@@ -34,6 +34,7 @@ if($dbDestinataire == $user){
     //Delete sur les deux tables car pas de cascades lors de la suppression dans la table Message
     $result = $file_db->query("DELETE FROM Message WHERE Message_id='$idMsg';");
     $result = $file_db->query("DELETE FROM Messages WHERE Message_id='$idMsg'");
+    echo "Message supprimé!";
 }
 else {
     echo "Vous ne pouvez pas supprimer ce message!";
