@@ -15,7 +15,8 @@ if (isset($_SESSION["user_id"])){
     }
     $string .= '<input type="button" value="Changer de mot de passe" onclick="changePass()">'
             .'<input type="button" value="Nouveau message" onclick="newMessage()">'
-            .'<input type="button" value="Déconnexion" onclick="deconnexion()" >';
+            .'<input type="button" value="Déconnexion" onclick="deconnexion()" >'
+            .'<td>Nom d\'utilisateur : '.$_SESSION['username'].'</td>';
 
     $string .= '</div>'
             .'<main>'
@@ -30,9 +31,9 @@ if (isset($_SESSION["user_id"])){
 else{
     $string .= '<form action="javascript:login()">'
             .'<label for="login">Login</label>'
-            .'<input type="text" id="login" name="login" placeholder="email" value="steve.henriquet" required><br><br>'
+            .'<input type="text" id="login" name="login" placeholder="email" value="" required><br><br>'
             .'<label for="password">Password</label>'
-            .'<input type="password" id="password" name="password" placeholder="password" value="pass" required><br><br>'
+            .'<input type="password" id="password" name="password" placeholder="password" value="" required><br><br>'
             .'<input type="submit" value="submit">'
             .'</form>'
             .'<div class="msgError" id="msgErrorId"></div>';

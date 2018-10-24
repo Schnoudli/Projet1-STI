@@ -14,7 +14,7 @@ try
 {
     /*** connect to SQLite database ***/
 
-    $file_db = new PDO("sqlite:../../DB/database.sqlite");
+    $file_db = new PDO("sqlite:../../databases/database.sqlite");
 
 }
 catch(PDOException $e)

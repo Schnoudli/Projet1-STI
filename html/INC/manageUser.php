@@ -14,7 +14,7 @@ if($_SESSION['admin']) {
     {
         /*** connect to SQLite database ***/
 
-        $file_db = new PDO("sqlite:../../DB/database.sqlite");
+        $file_db = new PDO("sqlite:../../databases/database.sqlite");
 
     }
     catch(PDOException $e)
@@ -33,7 +33,13 @@ if($_SESSION['admin']) {
     }
     elseif ($_POST['context']==='delete'){
         $userId = $_POST['userId'];
-        $result = $file_db->query("DELETE FROM Personne WHERE User_id='$userId'");
+        if($_SESSION["user_id"] === $userId){
+            array_push($arrToSend, "Impossible de se supprimer soit même!") ;
+            echo json_encode($arrToSend);
+        }
+        else {
+            $result = $file_db->query("DELETE FROM Personne WHERE User_id='$userId'");
+        }
     }
     /***********    Déconnexion de la DB        ************/
     $file_db = null;
