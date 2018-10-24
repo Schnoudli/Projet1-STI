@@ -14,6 +14,18 @@ function alertInfo(str){
     alert(str);
 }
 
+function afterReload(str){
+    var r = confirm(str);
+    if (r || !r) {
+        location.reload();
+    }
+}
+
+function manageReturn(retour) {
+    let json = testeJson(retour);
+    $(json[0]).html(json[1]);
+}
+
 function login() {
     let log = $('#login')[0].value;
     let pass = $('#password')[0].value;
@@ -27,11 +39,6 @@ function getAllMessage(){
 
 function getMessage(idMsg){
     $.post('INC/getMessages.php', {idMsg: idMsg}, manageReturn);
-}
-
-function manageReturn(retour) {
-    let json = testeJson(retour);
-    $(json[0]).html(json[1]);
 }
 
 function deconnexion(){
@@ -63,13 +70,6 @@ function sendMessage(){
     let sujet = $('#sujet')[0].value;
     let message = $('#message')[0].value;
     $.post('INC/sendMessages.php',{destinataire : destinataire , sujet : sujet, message : message }, returnSendMessage);
-}
-
-function afterReload(str){
-    var r = confirm(str);
-    if (r || !r) {
-        location.reload();
-    }
 }
 
 function supressMsg(idMsg) {
