@@ -28,7 +28,7 @@ function login() {
     let log = $('#login')[0].value;
     let pass = $('#password')[0].value;
     let type = 'login';
-    $.post('INC/formSubmit.php',{login : log , password : pass, type : type }, manageReturn);
+    $.post('INC/login.php',{login : log , password : pass, type : type }, manageReturn);
 }
 
 function getAllMessage(){

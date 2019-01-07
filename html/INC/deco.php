@@ -8,6 +8,8 @@
 
 session_start();
 
-unset($_SESSION["user_id"]);
+unset($_SESSION);
 
 echo 'Vous êtes maintenant déconnecté';
+
+session_destroy();

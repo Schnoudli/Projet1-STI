@@ -7,45 +7,43 @@
  */
 
 session_start();
-/***********    Phase de connection à la databases     ************/
-try
-{
-    /*** connect to SQLite database ***/
 
-    $file_db = new PDO("sqlite:../../databases/database.sqlite");
+if (isset($_SESSION["user_id"])) {
+    /***********    Phase de connection à la databases     ************/
+    try {
+        /*** connect to SQLite database ***/
 
-}
-catch(PDOException $e)
-{
-    echo $e->getMessage();
-    echo "<br><br>Database -- NOT -- loaded successfully .. ";
-    die( "<br><br>Query Closed !!!");
-}
+        $file_db = new PDO("sqlite:../../databases/database.sqlite");
 
-/***********    Connection à la databases OK     ************/
-
-    $user_id =  filter_var ( $_SESSION["user_id"], FILTER_SANITIZE_STRING);
-    $oldPass = filter_var ( $_POST["oldPass"], FILTER_SANITIZE_STRING);
-    $newPass = filter_var ( $_POST["newPass"], FILTER_SANITIZE_STRING);
-    $newPassCheck = filter_var ( $_POST["newPassCheck"], FILTER_SANITIZE_STRING);
-
-    if($newPass !== $newPassCheck){
-        echo "Veuillez taper le même mot de passe!";
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        echo "<br><br>Database -- NOT -- loaded successfully .. ";
+        die("<br><br>Query Closed !!!");
     }
-    else{
+
+    /***********    Connection à la databases OK     ************/
+
+    $user_id = filter_var($_SESSION["user_id"], FILTER_SANITIZE_STRING);
+    $oldPass = filter_var($_POST["oldPass"], FILTER_SANITIZE_STRING);
+    $newPass = filter_var($_POST["newPass"], FILTER_SANITIZE_STRING);
+    $newPassCheck = filter_var($_POST["newPassCheck"], FILTER_SANITIZE_STRING);
+
+    if ($newPass !== $newPassCheck) {
+        echo "Veuillez taper le même mot de passe!";
+    } else {
         $dbPass = '';
         $result = $file_db->query("SELECT Pass FROM Personne WHERE User_id ='" . $user_id . "';");
         foreach ($result as $row) {
             $dbPass = $row['Pass'];
         }
-        if($oldPass == $dbPass){
+        if ($oldPass == $dbPass) {
             $result = $file_db->query("UPDATE Personne SET Pass = '" . $newPass . "' WHERE User_id ='" . $user_id . "';");
             echo "Mot de passe mis à jour avec succès";
-        }
-        else {
+        } else {
             echo "Mot de passe erroné!";
         }
     }
 
-/***********    Déconnexion de la databases        ************/
-$file_db = null;
+    /***********    Déconnexion de la databases        ************/
+    $file_db = null;
+}

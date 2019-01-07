@@ -85,6 +85,36 @@ Les entrées ont du être "sanitisées". Nous avons utilisé le filtre \textit{F
 \subsubsection{Correction}
 Tout comme pour les failles XSS, les entrées ont du être assainies.
 
+
+\subsection{Accès au page sans login}
+\subsubsection{Exploitation}
+Envoie de mail par exemple.
+\begin{figure}[H]
+\centering
+\includegraphics{images/withoutLogin.jpg}
+\caption{Accès à la page}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{images/postmanSendMessage.jpg}
+\caption{Requête Post réussi}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics{images/postmanSendMessageSuccess.jpg}
+\caption{Message reçu}
+\end{figure}
+
+\subsubsection{Correction}
+Vérification de l'existante de la variable de session \textit{\$\_SESSION["user\_id"]}. 
+\begin{figure}[H]
+\centering
+\includegraphics{images/protectionPage.jpg}
+\caption{Protection à ajouter aux différentes pages}
+\end{figure}
+L'ajout de cette vérification s'effectue sur tous les fichiers à l'execption de index.php, login.php et des fichiers effectuant déjà la vérification par rapport au fait d'être administrateur
+
+
 \subsection{Problèmes non résolvables}
 \begin{itemize}
 \item PHP 5.6
