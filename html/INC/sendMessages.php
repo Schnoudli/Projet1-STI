@@ -23,10 +23,10 @@ catch(PDOException $e)
 
 /***********    Connection à la databases OK     ************/
 
-$dest_name = strTolower($_POST['destinataire']);
-$sujet = $_POST['sujet'];
-$message = $_POST['message'];
-$expediteur_id = $_SESSION["user_id"];
+$dest_name = strTolower(filter_var ( $_POST['destinataire'], FILTER_SANITIZE_STRING));
+$sujet = filter_var ( $_POST['sujet'], FILTER_SANITIZE_STRING);
+$message = filter_var ( $_POST['message'], FILTER_SANITIZE_STRING);
+$expediteur_id = filter_var ( $_SESSION["user_id"], FILTER_SANITIZE_STRING);
 $dest_id_db = '';
 $arrToSend = array();
 

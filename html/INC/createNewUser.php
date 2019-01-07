@@ -24,17 +24,17 @@ if($_SESSION['admin']) {
         die( "<br><br>Query Closed !!!");
     }
 
-    $pass = $_POST["pass"];
-    $passCheck = $_POST["passCheck"];
+    $pass = filter_var ( $_POST["pass"], FILTER_SANITIZE_STRING);
+    $passCheck = filter_var ( $_POST["passCheck"], FILTER_SANITIZE_STRING);
 
     if($pass !== $passCheck){
         echo "Veuillez taper le même mot de passe!";
     }
     else{
-        $firstname = $_POST["firstname"];
-        $lastname = $_POST["lastname"];
+        $firstname = filter_var ( $_POST["firstname"], FILTER_SANITIZE_STRING);
+        $lastname = filter_var ( $_POST["lastname"], FILTER_SANITIZE_STRING);
         $isActif = $_POST["isActif"]==='true' ? 1 : 0;
-        $isAdmin = $_POST["isAdmin"]==='true' ? 1 :  0;
+        $isAdmin = $_POST["isAdmin"]==='true' ? 1 : 0;
 
         $username = $firstname.'.'.$lastname;
         $username = strtolower($username);

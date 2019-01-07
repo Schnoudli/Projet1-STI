@@ -1,5 +1,5 @@
 //Fonction testant si le JSON peut-être parsé
-function testeJson(json) {
+function testeParseJson(json) {
     let parsed;
     try {
         parsed = JSON.parse(json);
@@ -16,13 +16,11 @@ function alertInfo(str){
 
 function afterReload(str){
     var r = confirm(str);
-    if (r || !r) {
         location.reload();
-    }
 }
 
 function manageReturn(retour) {
-    let json = testeJson(retour);
+    let json = testeParseJson(retour);
     $(json[0]).html(json[1]);
 }
 
@@ -53,7 +51,7 @@ function newMessage(){
 }
 
 function returnSendMessage(retour) {
-    let json = testeJson(retour);
+    let json = testeParseJson(retour);
     if(json[0]== 1) {
         var r = confirm(json[1]);
         if (r || !r) {

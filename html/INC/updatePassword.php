@@ -24,10 +24,10 @@ catch(PDOException $e)
 
 /***********    Connection à la databases OK     ************/
 
-    $user_id =  $_SESSION["user_id"];
-    $oldPass = $_POST["oldPass"];
-    $newPass = $_POST["newPass"];
-    $newPassCheck = $_POST["newPassCheck"];
+    $user_id =  filter_var ( $_SESSION["user_id"], FILTER_SANITIZE_STRING);
+    $oldPass = filter_var ( $_POST["oldPass"], FILTER_SANITIZE_STRING);
+    $newPass = filter_var ( $_POST["newPass"], FILTER_SANITIZE_STRING);
+    $newPassCheck = filter_var ( $_POST["newPassCheck"], FILTER_SANITIZE_STRING);
 
     if($newPass !== $newPassCheck){
         echo "Veuillez taper le même mot de passe!";

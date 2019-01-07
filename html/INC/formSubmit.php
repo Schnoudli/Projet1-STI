@@ -28,8 +28,8 @@ catch(PDOException $e)
 
 // Permet de récupérer le login et le password passé depuis la page de connection
 
-$name = $_POST["login"];
-$password = $_POST["password"];
+$name = filter_var ( $_POST["login"], FILTER_SANITIZE_STRING);
+$password = filter_var ( $_POST["password"], FILTER_SANITIZE_STRING);
 
 // Permet de regarder que notre user, ainsi que sont mdp figre dans notre databases
 $result = $file_db->query("SELECT Actif, User_id, Admin, Username FROM Personne WHERE Username='$name' AND Pass='$password'");
