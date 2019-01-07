@@ -85,6 +85,18 @@ Les entrées ont du être "sanitisées". Nous avons utilisé le filtre \textit{F
 \subsubsection{Correction}
 Tout comme pour les failles XSS, les entrées ont du être assainies.
 
+\subsection{Mauvaise destruction des session}
+\subsection{Exploit}
+Les sessions sont mal détruites. Potentiellement, après le login d'un admin, un utilisateur pourrait se retrouver à avoir accès à des informations réservées aux administrateurs.
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{images/unset.png}
+\caption{Mauvaise destruction de la session}
+\end{figure}
+
+
+\subsection{Correction}
+
 
 \subsection{Accès au page sans login}
 \subsubsection{Exploitation}
@@ -106,7 +118,7 @@ Envoie de mail par exemple.
 \end{figure}
 
 \subsubsection{Correction}
-Vérification de l'existante de la variable de session \textit{\$\_SESSION["user\_id"]}. 
+Vérification de l'existante de la variable de session \textit{\$\_SESSION["user\_id"]}.
 \begin{figure}[H]
 \centering
 \includegraphics{images/protectionPage.jpg}
