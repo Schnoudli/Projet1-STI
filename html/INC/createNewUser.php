@@ -56,3 +56,7 @@ if($_SESSION['admin']) {
     /***********    Déconnexion de la databases        ************/
     $file_db = null;
 }
+else {
+    header('Location: ../index.php');
+    exit();
+}

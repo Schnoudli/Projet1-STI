@@ -28,6 +28,10 @@ if($_SESSION['admin']) {
         .'</form><br><br>';
 
 }
+else {
+    header('Location: ../index.php');
+    exit();
+}
 
 $arrToSend = array();
 array_push($arrToSend, '#content', $layout ? $layout : "Vous n'êtes pas administrateur!!!") ;

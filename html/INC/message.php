@@ -56,3 +56,7 @@ if (isset($_SESSION["user_id"])) {
     array_push($arrToSend, '#content', $string);
     echo json_encode($arrToSend);
 }
+else {
+    header('Location: ../index.php');
+    exit();
+}
