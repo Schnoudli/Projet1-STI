@@ -1,0 +1,46 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[top=4cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{textcomp}
+\usepackage{subcaption}
+\usepackage[export]{adjustbox}
+\graphicspath{{../images/}}
+
+\begin{document}
+\begin{titlepage}
+	{
+		\centering
+		{\huge\bfseries STI - Projet Partie 2\par}
+		\vspace{1.5cm}
+		{\Large\bfseries Rapport\par}
+		\vspace{2cm}
+		{\large\itshape Léo Cortès\par}
+		\vspace{0.25cm}
+		{\large\itshape Steve Henriquet\par}
+
+		\vfill
+
+		% Bottom of the page
+		{\large \today\par}
+	}
+	
+	\begin{figure}[H]
+		\noindent
+		\begin{minipage}{0.3\textwidth}% adapt widths of minipages to your needs
+			\href{https://heig-vd.ch}{\includegraphics[scale=0.5,left]{HEIG-VD-logo.png}}
+		\end{minipage}%
+	\hfill%
+	\begin{minipage}{0.3\textwidth}\raggedleft
+		\href{https://www.hes-so.ch/}{\includegraphics[scale=0.5,right]{HES-SO-logo.jpg}}
+		\end{minipage}
+	\end{figure}
+\end{titlepage}
+\end{document}
