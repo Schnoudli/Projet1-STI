@@ -46,8 +46,9 @@
 \section{Introduction}
 
 
-\section{Vulnérabilités}
+\section{Vulnérabilités et corrections}
 \subsection{XSS}
+\subsubsection{Exploitation}
 Le programme est vulnérable aux attaques XSS. Les balises HTML sont correctement inteprétée, ainsi que les balises de script. 
 
 Voici le message envoyé par un attaquant quelconque : 
@@ -70,5 +71,8 @@ Lorsque la victime l'ouvre, voici le script est correctement exécuté.
 \includegraphics[width=\linewidth]{images/xssOpen.png}
 \caption{Exécution XSS}
 \end{figure}
+
+\subsubsection{Correction}
+Les entrées ont du être "sanitisées". 
 
 \end{document}

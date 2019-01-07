@@ -1,3 +1,5 @@
 \contentsline {section}{\numberline {1}Introduction}{3}{section.1}
-\contentsline {section}{\numberline {2}Vuln\IeC {\'e}rabilit\IeC {\'e}s}{3}{section.2}
+\contentsline {section}{\numberline {2}Vuln\IeC {\'e}rabilit\IeC {\'e}s et corrections}{3}{section.2}
 \contentsline {subsection}{\numberline {2.1}XSS}{3}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Exploitation}{3}{subsubsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.2}Correction}{4}{subsubsection.2.1.2}

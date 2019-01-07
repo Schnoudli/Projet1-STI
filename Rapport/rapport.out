@@ -1,3 +1,5 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.2}{Vuln\351rabilit\351s}{}% 2
+\BOOKMARK [1][-]{section.2}{Vuln\351rabilit\351s et corrections}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{XSS}{section.2}% 3
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Exploitation}{subsection.2.1}% 4
+\BOOKMARK [3][-]{subsubsection.2.1.2}{Correction}{subsection.2.1}% 5
