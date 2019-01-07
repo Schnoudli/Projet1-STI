@@ -85,6 +85,18 @@ Les entrées ont du être "sanitisées". Nous avons utilisé le filtre \textit{F
 \subsubsection{Correction}
 Tout comme pour les failles XSS, les entrées ont du être assainies.
 
+\subsection{Mauvaise destruction des session}
+\subsection{Exploit}
+Les sessions sont mal détruites. Potentiellement, après le login d'un admin, un utilisateur pourrait se retrouver à avoir accès à des informations réservées aux administrateurs.
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{images/unset.png}
+\caption{Mauvaise destruction de la session}
+\end{figure}
+
+
+\subsection{Correction}
+
 \subsection{Problèmes non résolvables}
 \begin{itemize}
 \item PHP 5.6
