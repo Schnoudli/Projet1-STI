@@ -73,6 +73,22 @@ Lorsque la victime l'ouvre, voici le script est correctement exécuté.
 \end{figure}
 
 \subsubsection{Correction}
-Les entrées ont du être "sanitisées". 
+Les entrées ont du être "sanitisées". Nous avons utilisé le filtre \textit{FILTER\_SANITIZE\_STRING} dans les divers inputs accessibles.
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{images/sanitize.png}
+\caption{Exemple d'assainisation}
+\end{figure}
+
+\subsection{Injection SQL}
+\subsubsection{Exploitation}
+\subsubsection{Correction}
+Tout comme pour les failles XSS, les entrées ont du être assainies.
+
+\subsection{Problèmes non résolvables}
+\begin{itemize}
+\item PHP 5.6
+\item Gestion des cookies de session
+\end{itemize}
 
 \end{document}
