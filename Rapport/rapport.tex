@@ -49,7 +49,7 @@
 \section{Vulnérabilités et corrections}
 \subsection{XSS}
 \subsubsection{Exploitation}
-Le programme est vulnérable aux attaques XSS. Les balises HTML sont correctement inteprétée, ainsi que les balises de script. 
+Le programme est vulnérable aux attaques XSS. Les balises HTML sont correctement inteprétée, ainsi que les balises de script. C'est problématique car un attaquand pourrait envoyer un message malicieux à un administrateur. Lorsque l'admin se connecte, le script pourrait récupérer ses cookies et l'attaquant pourrait les rejouer et devenir donc administrateur.
 
 Voici le message envoyé par un attaquant quelconque : 
 \begin{figure}[H]
