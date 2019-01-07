@@ -9,7 +9,7 @@ session_start();
 $layout = '';
 
 if($_SESSION['admin']) {
-    /***********    Phase de connection à la DB     ************/
+    /***********    Phase de connection à la databases     ************/
     try
     {
         /*** connect to SQLite database ***/
@@ -41,7 +41,7 @@ if($_SESSION['admin']) {
 
     $result = $file_db->query("SELECT * FROM Personne");
     $layout = manageLayout($result);
-    /***********    Déconnexion de la DB        ************/
+    /***********    Déconnexion de la databases        ************/
     $file_db = null;
 }
 

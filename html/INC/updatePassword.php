@@ -7,7 +7,7 @@
  */
 
 session_start();
-/***********    Phase de connection à la DB     ************/
+/***********    Phase de connection à la databases     ************/
 try
 {
     /*** connect to SQLite database ***/
@@ -22,7 +22,7 @@ catch(PDOException $e)
     die( "<br><br>Query Closed !!!");
 }
 
-/***********    Connection à la DB OK     ************/
+/***********    Connection à la databases OK     ************/
 
     $user_id =  $_SESSION["user_id"];
     $oldPass = $_POST["oldPass"];
@@ -47,5 +47,5 @@ catch(PDOException $e)
         }
     }
 
-/***********    Déconnexion de la DB        ************/
+/***********    Déconnexion de la databases        ************/
 $file_db = null;

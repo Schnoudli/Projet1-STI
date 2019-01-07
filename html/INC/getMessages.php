@@ -36,7 +36,7 @@ function setupMsg($arr) {
     return $string;
 }
 
-/***********    Connexion à la DB OK     ************/
+/***********    Connexion à la databases OK     ************/
 $user = $_SESSION["user_id"];
 $idMsg = $_POST['idMsg'];
 // Permet de récupérer tout les messages où l'on est le destinataire
@@ -51,5 +51,5 @@ array_push($arrToSend, '#content', $msg) ;
 echo json_encode($arrToSend);
 
 
-/***********    Déconnexion de la DB        ************/
+/***********    Déconnexion de la databases        ************/
 $file_db = null;

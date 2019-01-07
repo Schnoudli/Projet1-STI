@@ -26,7 +26,7 @@ if(isset($_POST) && !empty($_POST['idMsg'])){
         die( "<br><br>Query Closed !!!");
     }
 
-    /***********    Connexion à la DB OK     ************/
+    /***********    Connexion à la databases OK     ************/
     $user = $_SESSION["user_id"];
     $idMsg = $_POST['idMsg'];
         // Permet de récupérer tout les messages où l'on est le destinataire
@@ -39,7 +39,7 @@ if(isset($_POST) && !empty($_POST['idMsg'])){
             .'&#13;&#10;'
             . $row['Message'];
     }
-    /***********    Déconnexion de la DB        ************/
+    /***********    Déconnexion de la databases        ************/
     $file_db = null;
 
 }

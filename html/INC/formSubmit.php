@@ -9,7 +9,7 @@
 require_once "manageLayout.php";
 
 session_start();
-/***********    Phase de connection à la DB     ************/
+/***********    Phase de connection à la databases     ************/
 try
 {
     /*** connect to SQLite database ***/
@@ -24,14 +24,14 @@ catch(PDOException $e)
     die( "<br><br>Query Closed !!!");
 }
 
-/***********    Connection à la DB OK     ************/
+/***********    Connection à la databases OK     ************/
 
 // Permet de récupérer le login et le password passé depuis la page de connection
 
 $name = $_POST["login"];
 $password = $_POST["password"];
 
-// Permet de regarder que notre user, ainsi que sont mdp figre dans notre DB
+// Permet de regarder que notre user, ainsi que sont mdp figre dans notre databases
 $result = $file_db->query("SELECT Actif, User_id, Admin, Username FROM Personne WHERE Username='$name' AND Pass='$password'");
 
 // Nous indique que le login et mot de passe tapé ne match pas

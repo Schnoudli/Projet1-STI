@@ -35,7 +35,7 @@ function setupUsers($arr) {
     return $string;
 }
 
-/***********    Connexion à la DB OK     ************/
+/***********    Connexion à la databases OK     ************/
 $user = $_SESSION["user_id"];
 // Permet de récupérer tout les messages où l'on est le destinataire
 $result = $file_db->query("SELECT * FROM Personne WHERE Personne.Admin='0';");
@@ -49,5 +49,5 @@ array_push($arrToSend, '#content', $usr ? $usr : 'Pas d\'utilisateur') ;
 echo json_encode($arrToSend);
 
 
-/***********    Déconnexion de la DB        ************/
+/***********    Déconnexion de la databases        ************/
 $file_db = null;

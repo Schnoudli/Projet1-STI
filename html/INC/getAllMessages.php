@@ -5,7 +5,7 @@
  * Date: 02/10/2018
  * Time: 08:54
  */
-/***********    Phase de connection à la DB     ************/
+/***********    Phase de connection à la databases     ************/
 session_start();
 try
 {
@@ -40,7 +40,7 @@ function setupMsg($arr) {
     return $string;
 }
 
-/***********    Connexion à la DB OK     ************/
+/***********    Connexion à la databases OK     ************/
 $user = $_SESSION["user_id"];
 // Permet de récupérer tout les messages où l'on est le destinataire
 $result = $file_db->query("SELECT * FROM Messages INNER JOIN Message ON Messages.Message_id = Message.Message_id WHERE Messages.Destinataire='$user' ORDER BY Date DESC");
@@ -59,5 +59,5 @@ function date_compare($a, $b)
     return $t1 - $t2;
 }
 
-/***********    Déconnexion de la DB        ************/
+/***********    Déconnexion de la databases        ************/
 $file_db = null;

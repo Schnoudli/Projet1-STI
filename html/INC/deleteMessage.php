@@ -20,7 +20,7 @@ catch(PDOException $e)
     die( "<br><br>Query Closed !!!");
 }
 
-/***********    Connexion à la DB OK     ************/
+/***********    Connexion à la databases OK     ************/
 $user = $_SESSION["user_id"];
 $idMsg = $_POST['idMsg'];
 
@@ -40,5 +40,5 @@ else {
     echo "Vous ne pouvez pas supprimer ce message!";
 }
 
-/***********    Déconnexion de la DB        ************/
+/***********    Déconnexion de la databases        ************/
 $file_db = null;

@@ -9,7 +9,7 @@
 session_start();
 
 if($_SESSION['admin']) {
-    /***********    Phase de connection à la DB     ************/
+    /***********    Phase de connection à la databases     ************/
     try
     {
         /*** connect to SQLite database ***/
@@ -53,6 +53,6 @@ if($_SESSION['admin']) {
         }
     }
 
-    /***********    Déconnexion de la DB        ************/
+    /***********    Déconnexion de la databases        ************/
     $file_db = null;
 }
