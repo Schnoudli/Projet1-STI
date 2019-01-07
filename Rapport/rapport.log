@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.6)  7 JAN 2019 15:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.6)  7 JAN 2019 15:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -667,7 +667,7 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-<titre/titre.pdf, id=36, 597.50829pt x 845.0471pt>
+<titre/titre.pdf, id=52, 597.50829pt x 845.0471pt>
 File: titre/titre.pdf Graphic file (type pdf)
 <use titre/titre.pdf>
 Package pdftex.def Info: titre/titre.pdf  used on input line 41.
@@ -676,7 +676,7 @@ File: titre/titre.pdf Graphic file (type pdf)
 <use titre/titre.pdf>
 Package pdftex.def Info: titre/titre.pdf  used on input line 41.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
-<titre/titre.pdf, id=39, page=1, 597.50829pt x 845.0471pt>
+<titre/titre.pdf, id=55, page=1, 597.50829pt x 845.0471pt>
 File: titre/titre.pdf Graphic file (type pdf)
 <use titre/titre.pdf, page 1>
 Package pdftex.def Info: titre/titre.pdf , page1 used on input line 41.
@@ -713,17 +713,17 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [2
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<images/xssAttack.png, id=128, 1197.47375pt x 420.57124pt>
+<images/xssAttack.png, id=148, 1197.47375pt x 420.57124pt>
 File: images/xssAttack.png Graphic file (type png)
 <use images/xssAttack.png>
 Package pdftex.def Info: images/xssAttack.png  used on input line 57.
 (pdftex.def)             Requested size: 390.0pt x 136.97281pt.
-<images/xssRecep.png, id=130, 1707.37875pt x 109.40875pt>
+<images/xssRecep.png, id=150, 1707.37875pt x 109.40875pt>
 File: images/xssRecep.png Graphic file (type png)
 <use images/xssRecep.png>
 Package pdftex.def Info: images/xssRecep.png  used on input line 64.
 (pdftex.def)             Requested size: 390.0pt x 24.99152pt.
-<images/xssOpen.png, id=131, 1927.2pt x 467.7475pt>
+<images/xssOpen.png, id=151, 1927.2pt x 467.7475pt>
 File: images/xssOpen.png Graphic file (type png)
 <use images/xssOpen.png>
 Package pdftex.def Info: images/xssOpen.png  used on input line 71.
@@ -744,7 +744,7 @@ l.74
                                                   \fi \fi 
 l.74 
       <./images/xssAttack.png> <./images/xssRecep.png>]
-<images/sanitize.png, id=141, 556.0775pt x 36.135pt>
+<images/sanitize.png, id=161, 556.0775pt x 36.135pt>
 File: images/sanitize.png Graphic file (type png)
 <use images/sanitize.png>
 Package pdftex.def Info: images/sanitize.png  used on input line 79.
@@ -755,47 +755,53 @@ Overfull \hbox (87.5634pt too wide) in paragraph at lines 76--81
 il-tre \T1/cmr/m/it/12 FIL-TER_SANITIZE_STRING
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 90.
+<images/unset.png, id=162, 292.09125pt x 127.47626pt>
+File: images/unset.png Graphic file (type png)
+<use images/unset.png>
+Package pdftex.def Info: images/unset.png  used on input line 93.
+(pdftex.def)             Requested size: 390.0pt x 170.22208pt.
+[4pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) 
+has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.96 
+     pdfTeX warning (ext4): destination with the same identifier (name{figure.4
+}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.96 
+      <./images/xssOpen.png> <./images/sanitize.png>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 102.
+
+
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 90.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 94.
- [4pdfTeX warning (ext4): destination with the same identifier (name{figure.3})
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 102.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 106.
+ [5pdfTeX warning (ext4): destination with the same identifier (name{figure.5})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.94 \end{document}
-                   pdfTeX warning (ext4): destination with the same identifier 
-(name{figure.4}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.94 \end{document}
-                    <./images/xssOpen.png> <./images/sanitize.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 94.
-
-(./rapport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 94.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 94.
-
-
-Package rerunfilecheck Warning: File `rapport.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `rapport.out':
-(rerunfilecheck)             Before: 732927567D79408159F3506ACB078512;511
-(rerunfilecheck)             After:  6C64B698E240A509A14902051EE064CA;591.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 94.
+l.106 \end{document}
+                     <./images/unset.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 106.
+ (./rapport.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 106.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 106.
+Package rerunfilecheck Info: File `rapport.out' has not changed.
+(rerunfilecheck)             Checksum: F4AEDE06A4EFA19DF3D56F2EDADCBF49;790.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 106.
  ) 
 Here is how much of TeX's memory you used:
- 8467 strings out of 494853
- 120127 string characters out of 6178459
+ 8480 strings out of 494853
+ 120334 string characters out of 6178459
  208004 words of memory out of 5000000
- 11679 multiletter control sequences out of 15000+600000
+ 11687 multiletter control sequences out of 15000+600000
  11688 words of font info for 30 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  37i,18n,43p,388b,442s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -805,10 +811,10 @@ Here is how much of TeX's memory you used:
 </home/leo/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> <
 /home/leo/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on rapport.pdf (4 pages, 862620 bytes).
+Output written on rapport.pdf (5 pages, 874151 bytes).
 PDF statistics:
- 310 PDF objects out of 1000 (max. 8388607)
- 109 compressed objects within 2 object streams
- 18 named destinations out of 1000 (max. 500000)
- 105 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 345 PDF objects out of 1000 (max. 8388607)
+ 133 compressed objects within 2 object streams
+ 23 named destinations out of 1000 (max. 500000)
+ 142 words of extra memory for PDF output out of 10000 (max. 10000000)
 
