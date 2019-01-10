@@ -9,4 +9,7 @@
 \BOOKMARK [2][-]{subsection.2.3}{Mauvaise destruction des session}{section.2}% 9
 \BOOKMARK [2][-]{subsection.2.4}{Exploit}{section.2}% 10
 \BOOKMARK [2][-]{subsection.2.5}{Correction}{section.2}% 11
-\BOOKMARK [2][-]{subsection.2.6}{Probl\350mes non r\351solvables}{section.2}% 12
+\BOOKMARK [2][-]{subsection.2.6}{Acc\350s au page sans login}{section.2}% 12
+\BOOKMARK [3][-]{subsubsection.2.6.1}{Exploitation}{subsection.2.6}% 13
+\BOOKMARK [3][-]{subsubsection.2.6.2}{Correction}{subsection.2.6}% 14
+\BOOKMARK [2][-]{subsection.2.7}{Probl\350mes non r\351solvables}{section.2}% 15
