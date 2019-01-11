@@ -45,6 +45,30 @@
 \newpage
 \section{Introduction}
 
+\section{Analyse de menaces}
+\subsection{Agents menaçants}
+En principe, notre application devraient être accessibles depuis n'importe qui sur Internet. Les agents menaçants peuvent donc être n'importe qui. Notre application n'est pas révolutionnaire et bien moins efficace que la concurrence. Des attaquants concurrents seraient donc peu probables. Les principaux agents menaçants seraient surtout nous (les élèves du cours STI) ou n'importe quelle personne souhaitant s'amuser.
+
+\subsection{Vecteurs d'attaque}
+Tout se passe sur le web. Les utilisateurs peuvent (et doivent) manipuler des entrées pour envoyer des messages ou mettre à jour leurs profils. Des entrées malveillantes pourraient exploiter des vulnérabilités au sein de notre application.
+
+\subsection{Faiblesses de sécurité}
+Comme nous avons accès au code ne notre application, nous avons une idée des vulnérabilités que nous pouvons y trouver. Dans un premier temps, les entrées utilisateur ne sont pas assainies et sont envoyées telle quelle. Cela laisse place à de nombreuses failles comme des injections SQL ou des XSS.
+
+De plus, les accès à la DB n'utilisent pas de query pré-préparées. Cela pourrait donc donner lieu à des injections SQL supplémentaires.
+
+L'application utilise du HTTP simple et aucun chiffrement. Des données pourraient donc être sniffées et si une fuite de données à lieu, toutes les données pourraient être accessibles en clair.
+
+\subsection{Contrôle de sécurité}
+Les accès sont, en principe, vérifiés. Un utilisateurs ne peut accéder qu'aux mails qu'il a envoyé ou reçu et pas ceux d'autres utilisateurs. Les accès administrateurs sont réservés aux administrateurs. Finalement, il n'est pas possible d'accéder à des fichiers stockés sur le serveur. Si un utilisateur essaie d'accéder à une page non prévue, il sera redirigé.
+
+\subsection{Impacts techniques}
+Si des messages sont accédés par des personnes non autorisées, cela peut entraîner une perte de confidentialité.
+
+Un accès non autorisé pourrait donner le droit à un attaquant de modifier, voire supprimer de l'information. Une perte d'intégrité peut donc en découler.
+
+\subsection{Impacts business}
+L'impact business serait faible. En effet, notre application n'est pas conçue dans un but lucratif et ne sera probablement pas maintenue par la suite. Si une telle application était mise en production dans le but d'offrir un service sérieux, cela pourrait être problématique car des clients pourraient stocker des informations personnelles voire confidentielles  dans leurs messages. Une fuite de données ou des vulnérabilité pourrait entraîner une perte de confiance complète des utilisateurs.
 
 \section{Vulnérabilités et corrections}
 \subsection{XSS}
@@ -82,8 +106,18 @@ Les entrées ont du être "sanitisées". Nous avons utilisé le filtre \textit{F
 
 \subsection{Injection SQL}
 \subsubsection{Exploitation}
+D'après l'outil \textit{SQLMap}, on peut déjà sortir quelques informations depuis la page de login, dont les tables de notre DB. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{images/sqli.png}
+\caption{Résultat de \textit{SQLMap} sur la page de login}
+\end{figure}
+
 \subsubsection{Correction}
-Tout comme pour les failles XSS, les entrées ont du être assainies.
+Tout comme pour les failles XSS, les entrées ont du être assainies. De plus, les query simples utilisées dans le code PHP ont été passées en prepared statements.
+
+TODO INSERT CODE SCREENSHOTS
 
 \subsection{Mauvaise destruction des session}
 \subsection{Exploit}
