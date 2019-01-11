@@ -6,6 +6,8 @@
  * Time: 15:29
  */
 
+session_start();
+
 if (isset($_SESSION["user_id"])) {
     $layout = '<form action="javascript:changePassUser()">'
         . '<label for="oldPass">Ancien mot de passe: </label>'
@@ -17,12 +19,12 @@ if (isset($_SESSION["user_id"])) {
         . '<input type="submit" value="Changer de mot de passe"><br>'
         . '</form>';
 
-
     $arrToSend = array();
     array_push($arrToSend, '#content', $layout);
     echo json_encode($arrToSend);
 }
 else {
+    echo
     header('Location: ../index.php');
     exit();
 }

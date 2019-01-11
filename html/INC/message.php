@@ -28,7 +28,11 @@ if (isset($_SESSION["user_id"])) {
         $user = $_SESSION["user_id"];
         $idMsg = $_POST['idMsg'];
         // Permet de récupérer tout les messages où l'on est le destinataire
-        $result = $file_db->query("SELECT * FROM Messages INNER JOIN Message ON Messages.Message_id = Message.Message_id WHERE Messages.Destinataire='$user' AND Messages.Message_id='$idMsg' ");
+
+        $sth = $file_db->prepare("SELECT * FROM Messages INNER JOIN Message ON Messages.Message_id = Message.Message_id WHERE Messages.Destinataire=:user AND Messages.Message_id=:idMsg");
+        $sth->execute(array(':user' => $user, ':idMsg' => $idMsg));
+        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+
         foreach ($result as $row) {
             $destinataire = $row['Expediteur'];
             $sujet = 'RE: ' . $row['Sujet'];

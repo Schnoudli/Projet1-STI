@@ -40,7 +40,10 @@ if($_SESSION['admin']) {
         $username = strtolower($username);
         $usernameDb = '';
 
-        $result = $file_db->query("SELECT Username FROM Personne WHERE Username='" . $username . "';");
+        $sth = $file_db->prepare("SELECT Username FROM Personne WHERE Username=:username");
+        $sth->execute(array(':username' => $username));
+        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+
         foreach ($result as $row) {
             $usernameDb = $row['Username'];
         }
@@ -48,7 +51,11 @@ if($_SESSION['admin']) {
             echo "Utilisateur déjà existant";
         }
         else {
-            $result = $file_db->query("INSERT INTO Personne (Actif, Nom, Prenom, Username, Pass, Admin) VALUES ('$isActif', '$lastname', '$firstname', '$username', '$passCheck', '$isAdmin');");
+            $sth = $file_db->prepare("INSERT INTO Personne (Actif, Nom, Prenom, Username, Pass, Admin) VALUES (:isActif, :lastname, :firstname, :username, :passCheck, :isAdmin)");
+            $sth->execute(array(':isActif' => $isAdmin, ':lastname' => $lastname, ':firstname' => $firstname, ':username' => $username, ':passCheck' => $passCheck, ':isAdmin' => $isAdmin));
+            $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+            $result = $file_db->query();
             echo "Utilisateur créé avec succès";
         }
     }

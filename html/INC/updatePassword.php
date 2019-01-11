@@ -32,12 +32,17 @@ if (isset($_SESSION["user_id"])) {
         echo "Veuillez taper le même mot de passe!";
     } else {
         $dbPass = '';
-        $result = $file_db->query("SELECT Pass FROM Personne WHERE User_id ='" . $user_id . "';");
+        $sth = $file_db->prepare("SELECT Pass FROM Personne WHERE User_id = :user_id;");
+        $sth->execute(array(':user_id' => $user_id));
+        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
         foreach ($result as $row) {
             $dbPass = $row['Pass'];
         }
         if ($oldPass == $dbPass) {
-            $result = $file_db->query("UPDATE Personne SET Pass = '" . $newPass . "' WHERE User_id ='" . $user_id . "';");
+            $sth = $file_db->prepare("UPDATE Personne SET Pass = :newPass WHERE User_id = :user_id");
+            $sth->execute(array(':newPass' => $newPass, ':user_id' => $user_id));
+            $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+
             echo "Mot de passe mis à jour avec succès";
         } else {
             echo "Mot de passe erroné!";

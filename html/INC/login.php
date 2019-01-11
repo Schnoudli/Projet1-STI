@@ -32,7 +32,10 @@ $name = filter_var ( $_POST["login"], FILTER_SANITIZE_STRING);
 $password = filter_var ( $_POST["password"], FILTER_SANITIZE_STRING);
 
 // Permet de regarder que notre user, ainsi que sont mdp figre dans notre databases
-$result = $file_db->query("SELECT Actif, User_id, Admin, Username FROM Personne WHERE Username='$name' AND Pass='$password'");
+$sth = $file_db->prepare("SELECT Actif, User_id, Admin, Username FROM Personne WHERE Username=:name AND Pass=:password");
+$sth->execute(array(':name' => $name, ':password' => $password));
+$result = $sth->fetchAll(PDO::FETCH_ASSOC);
+
 
 // Nous indique que le login et mot de passe tapé ne match pas
 function chargeTemplate(){

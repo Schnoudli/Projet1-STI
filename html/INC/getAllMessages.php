@@ -43,7 +43,9 @@ if (isset($_SESSION["user_id"])) {
     /***********    Connexion à la databases OK     ************/
     $user = $_SESSION["user_id"];
 // Permet de récupérer tout les messages où l'on est le destinataire
-    $result = $file_db->query("SELECT * FROM Messages INNER JOIN Message ON Messages.Message_id = Message.Message_id WHERE Messages.Destinataire='$user' ORDER BY Date DESC");
+    $sth = $file_db->prepare("SELECT * FROM Messages INNER JOIN Message ON Messages.Message_id = Message.Message_id WHERE Messages.Destinataire=:user ORDER BY Date DESC");
+    $sth->execute(array(':user' => $user));
+    $result = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 // Affichage des différents messages
     $msg = setupMsg($result);
@@ -51,13 +53,6 @@ if (isset($_SESSION["user_id"])) {
     $arrToSend = array();
     array_push($arrToSend, '#content', $msg ? $msg : 'Pas de message');
     echo json_encode($arrToSend);
-
-    function date_compare($a, $b)
-    {
-        $t1 = strtotime($a['Date']);
-        $t2 = strtotime($b['Date']);
-        return $t1 - $t2;
-    }
 
     /***********    Déconnexion de la databases        ************/
     $file_db = null;

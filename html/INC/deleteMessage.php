@@ -24,15 +24,26 @@ if (isset($_SESSION["user_id"])) {
     $idMsg = $_POST['idMsg'];
 
     $dbDestinataire = '';
-    $result = $file_db->query("SELECT Destinataire FROM Messages WHERE Message_id='$idMsg'");
+
+    $sth = $file_db->prepare("SELECT Destinataire FROM Messages WHERE Message_id=:idMsg");
+    $sth->execute(array(':idMsg' => $idMsg));
+    $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+
     foreach ($result as $row) {
         $dbDestinataire = $row['Destinataire'];
     }
 
     if ($dbDestinataire == $user) {
         //Delete sur les deux tables car pas de cascades lors de la suppression dans la table Message
-        $result = $file_db->query("DELETE FROM Message WHERE Message_id='$idMsg';");
-        $result = $file_db->query("DELETE FROM Messages WHERE Message_id='$idMsg'");
+
+        $sth = $file_db->prepare("DELETE FROM Message WHERE Message_id=:idMsg");
+        $sth->execute(array(':idMsg' => $idMsg));
+        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+        $sth = $file_db->prepare("DELETE FROM Messages WHERE Message_id=:idMsg");
+        $sth->execute(array(':idMsg' => $idMsg));
+        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+
         echo "Message supprimé!";
     } else {
         echo "Vous ne pouvez pas supprimer ce message!";

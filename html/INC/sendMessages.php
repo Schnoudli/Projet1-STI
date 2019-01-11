@@ -32,16 +32,21 @@ if (isset($_SESSION["user_id"])) {
     date_default_timezone_set('UTC');
 
 // Pour le destinataire
-    $sql = "SELECT User_id, Username FROM Personne WHERE Username='$dest_name';";
-    $result = $file_db->query($sql);
+    $sth = $file_db->prepare("SELECT User_id, Username FROM Personne WHERE Username=:dest_name");
+    $sth->execute(array(':dest_name' => $dest_name));
+    $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+
     foreach ($result as $row) {
         $dest_id_db = $row['User_id'];
         $dest_name_db = strTolower($row['Username']);
     }
 
 // Pour l'expediteur
-    $sql = "SELECT Username FROM Personne WHERE User_id='$expediteur_id';";
-    $result = $file_db->query($sql);
+
+    $sth = $file_db->prepare("SELECT Username FROM Personne WHERE User_id=:expediteur_id");
+    $sth->execute(array(':expediteur_id' => $expediteur_id));
+    $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+
     foreach ($result as $row) {
         $expediteur_name_db = strTolower($row['Username']);
     }
@@ -49,12 +54,16 @@ if (isset($_SESSION["user_id"])) {
 // Verif du destinataire existant
     if ($dest_name == $dest_name_db && $dest_id_db) {
 // Remplissage de la table Message
-        $sql = "INSERT INTO Message  (Date, Expediteur, Destinataire, Sujet, Message, Lu) VALUES ('" . date("Y-m-d H:i:s") . "', '" . $expediteur_name_db . "','" . $dest_name . "','" . $sujet . "',\"" . $message . "\",0);";
-        $result = $file_db->exec($sql);
+
+        $sth = $file_db->prepare("INSERT INTO Message  (Date, Expediteur, Destinataire, Sujet, Message, Lu) VALUES (:date, :expediteur_name_db, :dest_name, :sujet, :message,0)");
+        $sth->execute(array(':date' => date("Y-m-d H:i:s"), ':expediteur_name_db' => $expediteur_name_db, ':dest_name' => $dest_name, ':sujet' => $sujet, ':message' => $message));
+        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 // Remplissage de la table Messages
-        $sql = "INSERT INTO Messages (Expediteur, Destinataire, Message_id) VALUES ('" . $expediteur_id . "', '" . $dest_id_db . "', '" . $file_db->lastInsertId() . "');";
-        $result = $file_db->exec($sql);
+
+        $sth = $file_db->prepare("INSERT INTO Messages (Expediteur, Destinataire, Message_id) VALUES ( :expediteur_id , :dest_id_db , :lastFile)");
+        $sth->execute(array(':expediteur_id' => $expediteur_id, ':dest_id_db' => $dest_id_db, ':lastFile' => $file_db->lastInsertId()));
+        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
 
         array_push($arrToSend, "1", "Message envoyé!");
         echo json_encode($arrToSend);

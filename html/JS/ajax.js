@@ -91,7 +91,7 @@ function updateUser(userId) {
     let isActif = arrayTemp[0].checked;
     let newMdp = arrayTemp[1].value;
     let isAdmin = arrayTemp[2].checked;
-    $.post('INC/manageUser.php', {context: 'update', userId: userId, isActif: isActif, newMdp: newMdp, isAdmin: isAdmin}, modifUser());
+    $.post('INC/manageUser.php', {context: 'update', userId: userId, isActif: isActif, newMdp: newMdp, isAdmin: isAdmin}, modifUser);
 }
 
 function deleteUser(userId) {

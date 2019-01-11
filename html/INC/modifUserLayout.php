@@ -39,8 +39,11 @@ if($_SESSION['admin']) {
         return $string;
     }
 
-    $result = $file_db->query("SELECT * FROM Personne");
+    $sth = $file_db->prepare("SELECT * FROM Personne");
+    $sth->execute();
+    $result = $sth->fetchAll(PDO::FETCH_ASSOC);
     $layout = manageLayout($result);
+
     /***********    Déconnexion de la databases        ************/
     $file_db = null;
 }

@@ -29,12 +29,17 @@ if($_SESSION['admin']) {
         $newMdp = $_POST['newMdp'];
         $isActif = $_POST["isActif"]==='true' ? 1 : 0;
         $isAdmin = $_POST["isAdmin"]==='true' ? 1 :  0;
-        $result = $file_db->query("UPDATE Personne SET Actif='$isActif', Pass='$newMdp', Admin='$isAdmin' WHERE User_id ='$userId'");
+
+        $sth = $file_db->prepare("UPDATE Personne SET Actif=:isActif, Pass=:newMdp, Admin=:isAdmin WHERE User_id =:userId");
+        $sth->execute(array(':isActif' => $isActif, ':newMdp' => $newMdp, ':isAdmin' => $isAdmin, ':userId' => $userId));
+        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+
     }
     elseif ($_POST['context']==='delete'){
         $userId = $_POST['userId'];
         if($_SESSION["user_id"] === $userId){
             array_push($arrToSend, "Impossible de se supprimer soit même!") ;
+            sleep ( 1 );
             echo json_encode($arrToSend);
         }
         else {
