@@ -1,22 +1,22 @@
-\contentsline {section}{\numberline {1}Introduction}{3}{section.1}
-\contentsline {section}{\numberline {2}Analyse de menaces}{3}{section.2}
-\contentsline {subsection}{\numberline {2.1}Agents mena\IeC {\c c}ants}{3}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Vecteurs d'attaque}{3}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Faiblesses de s\IeC {\'e}curit\IeC {\'e}}{3}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Contr\IeC {\^o}le de s\IeC {\'e}curit\IeC {\'e}}{3}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}Impacts techniques}{4}{subsection.2.5}
-\contentsline {subsection}{\numberline {2.6}Impacts business}{4}{subsection.2.6}
-\contentsline {section}{\numberline {3}Vuln\IeC {\'e}rabilit\IeC {\'e}s et corrections}{5}{section.3}
-\contentsline {subsection}{\numberline {3.1}XSS}{5}{subsection.3.1}
-\contentsline {subsubsection}{\numberline {3.1.1}Exploitation}{5}{subsubsection.3.1.1}
-\contentsline {subsubsection}{\numberline {3.1.2}Correction}{6}{subsubsection.3.1.2}
-\contentsline {subsection}{\numberline {3.2}Injection SQL}{6}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}Exploitation}{6}{subsubsection.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2}Correction}{7}{subsubsection.3.2.2}
-\contentsline {subsection}{\numberline {3.3}Mauvaise destruction des session}{7}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Exploit}{7}{subsection.3.4}
-\contentsline {subsection}{\numberline {3.5}Correction}{8}{subsection.3.5}
-\contentsline {subsection}{\numberline {3.6}Acc\IeC {\`e}s au page sans login}{8}{subsection.3.6}
-\contentsline {subsubsection}{\numberline {3.6.1}Exploitation}{8}{subsubsection.3.6.1}
-\contentsline {subsubsection}{\numberline {3.6.2}Correction}{9}{subsubsection.3.6.2}
-\contentsline {subsection}{\numberline {3.7}Probl\IeC {\`e}mes non r\IeC {\'e}solvables}{10}{subsection.3.7}
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}
+\contentsline {section}{\numberline {2}Analyse de menaces}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Agents mena\IeC {\c c}ants}{4}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Vecteurs d'attaque}{4}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Faiblesses de s\IeC {\'e}curit\IeC {\'e}}{4}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Contr\IeC {\^o}le de s\IeC {\'e}curit\IeC {\'e}}{4}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Impacts techniques}{5}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Impacts business}{5}{subsection.2.6}
+\contentsline {section}{\numberline {3}Vuln\IeC {\'e}rabilit\IeC {\'e}s et corrections}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}XSS}{6}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Exploitation}{6}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Correction}{8}{subsubsection.3.1.2}
+\contentsline {subsection}{\numberline {3.2}Injection SQL}{8}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Exploitation}{8}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Correction}{11}{subsubsection.3.2.2}
+\contentsline {subsection}{\numberline {3.3}Mauvaise destruction des session}{12}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Exploit}{12}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}Correction}{12}{subsubsection.3.3.2}
+\contentsline {subsection}{\numberline {3.4}Acc\IeC {\`e}s au page sans login}{12}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}Exploitation}{12}{subsubsection.3.4.1}
+\contentsline {subsubsection}{\numberline {3.4.2}Correction}{14}{subsubsection.3.4.2}
+\contentsline {subsection}{\numberline {3.5}Probl\IeC {\`e}mes non r\IeC {\'e}solvables}{14}{subsection.3.5}

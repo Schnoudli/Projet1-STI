@@ -42,6 +42,8 @@
 
 \tableofcontents
 
+\listoffigures
+
 \newpage
 \section{Introduction}
 
@@ -96,6 +98,33 @@ Lorsque la victime l'ouvre, voici le script est correctement exécuté.
 \caption{Exécution XSS}
 \end{figure}
 
+Essayons de récupérer les cookies de l'administrateur \textit{steve.henriquet}. Pour cela, un attaquant peut simplement écrire le message suivant : 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{images/cookieStealer.png}
+\caption{Message malveillant voleur de cookier}
+\end{figure}
+
+Le script contenu dans le message va simplement envoyer une requête contenant les cookies courant sur une serveur externe (ici \textit{localhost:3000}. L'administrateur \textit{steve.henriquet} ne se doute de rien en ouvrant son message.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{images/cookieStealing.png}
+\caption{La faille n'est pas visible pour la victime}
+\end{figure}
+
+Finalement, si on se connecte sur notre serveur externe, on peut constater qu'un nouveau cookier contenant un id de session est apparu.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{images/cookieStolen.png}
+\caption{Le cookie volé}
+\end{figure}
+
+Ce cookie peut tout simplement être rejoué et l'attaquant peut endosser l'identité de l'administrateur \textit{steve.henriquet}.
+
+
 \subsubsection{Correction}
 Les entrées ont du être "sanitisées". Nous avons utilisé le filtre \textit{FILTER\_SANITIZE\_STRING} dans les divers inputs accessibles.
 \begin{figure}[H]
@@ -114,13 +143,89 @@ D'après l'outil \textit{SQLMap}, on peut déjà sortir quelques informations de
 \caption{Résultat de \textit{SQLMap} sur la page de login}
 \end{figure}
 
+Dans notre page de login, en essayant d'injecter du code simple, nous avons remarqué que le login se faisait tout de même. D'après notre code, nous avons découvert une injection SQL permettant de bypasser le login et de se connecter en tant que n'importe quel utilisateur sans connaître son mot de passe. La requête effectuée au login est la suivante :
+
+\begin{lstlisting}[
+           language=SQL,
+           showspaces=false,
+           basicstyle=\ttfamily,
+           numbers=left,
+           numberstyle=\tiny,
+           commentstyle=\color{gray}
+        ]
+        SELECT Actif, User_id, Admin, Username FROM Personne WHERE Username='$name' AND Pass='$password'
+\end{lstlisting}
+
+Puis le code suivant permet de vérifier si les credentials sont valides : 
+
+\begin{lstlisting}[language=PHP]
+function checkLogin($arr) {
+    $bool = true;
+    $arrToSend = array();
+    foreach ($arr as $row) {
+        // Permet de savoir si l'utilisateur courant est actif ou non
+        if(empty($row['Actif'])){
+            array_push($arrToSend, "error", "Compte inactif!" . "<br/>") ;
+            echo json_encode($arrToSend);
+            $bool = false;
+        }
+        else{
+            // Permet de setter les variables de session utile pour toute la connection
+            $_SESSION["user_id"] = $row['User_id'];
+            $_SESSION["username"] = $row['Username'];
+            if(empty($row['Admin'])){
+                $_SESSION["admin"] = 0;
+            }
+            else{
+                $_SESSION["admin"] = 1;
+            }
+            array_push($arrToSend, "body", manageLayout()) ;
+            echo json_encode($arrToSend);
+            $bool = false;
+        }
+    }
+    return $bool;
+}
+\end{lstlisting}
+
+En écourtant la requête de la sorte : 
+
+\begin{lstlisting}[
+           language=SQL,
+           showspaces=false,
+           basicstyle=\ttfamily,
+           numbers=left,
+           numberstyle=\tiny,
+           commentstyle=\color{gray}
+        ]
+        SELECT Actif, User_id, Admin, Username FROM Personne WHERE Username='$name';
+\end{lstlisting}
+
+On peut se connecter sans avoir besoin de password ! Pour se faire, il suffit d'ajouter les deux caractères \textit{';} à la fin de son login et entrer un mode de passe random pour pas que le champs soit vide.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{images/sqliLogin.png}
+\caption{Se connecter comme \textit{user.test} sans connaître son mot de passe}
+\end{figure}
+
 \subsubsection{Correction}
 Tout comme pour les failles XSS, les entrées ont du être assainies. De plus, les query simples utilisées dans le code PHP ont été passées en prepared statements.
 
-TODO INSERT CODE SCREENSHOTS
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{images/simpleQuery.png}
+\caption{Avant d'utiliser des prepared statements il y avait juste de simples queries}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{images/preparedStatement.png}
+\caption{Example de prepared statement}
+\end{figure}
 
 \subsection{Mauvaise destruction des session}
-\subsection{Exploit}
+\subsubsection{Exploit}
 Les sessions sont mal détruites. Potentiellement, après le login d'un admin, un utilisateur pourrait se retrouver à avoir accès à des informations réservées aux administrateurs.
 \begin{figure}[H]
 \centering
@@ -129,7 +234,7 @@ Les sessions sont mal détruites. Potentiellement, après le login d'un admin, u
 \end{figure}
 
 
-\subsection{Correction}
+\subsubsection{Correction}
 
 
 \subsection{Accès au page sans login}
