@@ -204,12 +204,6 @@ En écourtant la requête de la sorte :
 
 On peut se connecter sans avoir besoin de password ! Pour se faire, il suffit d'ajouter les deux caractères \textit{';} à la fin de son login et entrer un mode de passe random pour pas que le champs soit vide.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=\linewidth]{images/sqliLogin.png}
-\caption{Se connecter comme \textit{user.test} sans connaître son mot de passe}
-\end{figure}
-
 \subsubsection{Exploitation : changer le mot de passe de n'importe quel utilisateur}
 Voici le code PHP associé à la modification d'un mot de passe : 
 \begin{lstlisting}[language=PHP]
@@ -229,7 +223,13 @@ Voici le code PHP associé à la modification d'un mot de passe :
     }
 \end{lstlisting}
 
-Avec une injection SQL, peut modifier la deuxième requête afin de modifier le password d'un autre utilisateur. Si le nouveau password que l'on rentre est le payload suivant : \textit{newpass' WHERE Username='victim.user' --}, alors l'utilisateur \textit{victim.user} aura son mot de passe modifié en \textit{newPass}. La partie \textit{WHERE User\_id ='" . \$user\_id . "';} de la requête originale n'est pas exécutée car commentée par \textit{--}.
+On peut modifier la deuxième requête afin de modifier le password d'un autre utilisateur. Si le nouveau password que l'on rentre est le payload suivant : \textit{newpass' WHERE Username='victim.user' --}, alors l'utilisateur \textit{victim.user} aura son mot de passe modifié en \textit{newPass}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{images/sqliLogin.png}
+\caption{Se connecter comme \textit{user.test} sans connaître son mot de passe}
+\end{figure}
 
 \subsubsection{Correction}
 Tout comme pour les failles XSS, les entrées ont du être assainies. De plus, les query simples utilisées dans le code PHP ont été passées en prepared statements.
