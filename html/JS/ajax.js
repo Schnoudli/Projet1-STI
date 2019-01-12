@@ -26,9 +26,10 @@ function manageReturn(retour) {
 
 function login() {
     let log = $('#login')[0].value;
+    let login_spam = $('#login_spam')[0].value;
     let pass = $('#password')[0].value;
-    let type = 'login';
-    $.post('INC/login.php',{login : log , password : pass, type : type }, manageReturn);
+
+    $.post('INC/login.php',{login : log , login_spam: login_spam, password : pass }, manageReturn);
 }
 
 function getAllMessage(){
@@ -47,7 +48,7 @@ function deconnexion(){
 }
 
 function newMessage(){
-    $.post('INC/message.php', manageReturn);
+    $.post('INC/sendMessageLayout.php', manageReturn);
 }
 
 function returnSendMessage(retour) {
@@ -66,8 +67,9 @@ function returnSendMessage(retour) {
 function sendMessage(){
     let destinataire = $('#destinataire')[0].value;
     let sujet = $('#sujet')[0].value;
+    let message_spam = $('#message_spam')[0].value;
     let message = $('#message')[0].value;
-    $.post('INC/sendMessages.php',{destinataire : destinataire , sujet : sujet, message : message }, returnSendMessage);
+    $.post('INC/sendMessages.php',{destinataire : destinataire , sujet : sujet, message_spam: message_spam, message : message }, returnSendMessage);
 }
 
 function supressMsg(idMsg) {
@@ -79,7 +81,7 @@ function supressMsg(idMsg) {
 
 
 function responseMsg(idMsg = ''){
-    $.post('INC/message.php', {idMsg : idMsg}, manageReturn);
+    $.post('INC/sendMessageLayout.php', {idMsg : idMsg}, manageReturn);
 }
 
 function modifUser() {

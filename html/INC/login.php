@@ -9,6 +9,14 @@
 require_once "manageLayout.php";
 
 session_start();
+
+//in your php ignore any submissions that inlcude this field
+if(!empty($_POST['login_spam'])) {
+    $arrToSend = array();
+    array_push($arrToSend, "#msgErrorId", "die spamming bot") ;
+    die(json_encode($arrToSend));
+}
+
 /***********    Phase de connection à la databases     ************/
 try
 {

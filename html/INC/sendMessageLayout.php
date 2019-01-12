@@ -50,10 +50,12 @@ if (isset($_SESSION["user_id"])) {
         . '<input type="text" id="destinataire" name="destinataire" placeholder="destinataire" value="' . $destinataire . '" required><br><br>'
         . '<label for="sujet">Sujet: </label>'
         . '<input type="text" id="sujet" name="sujet" placeholder="sujet" value="' . $sujet . '" required><br><br>'
+        . '<input type="text" id="message_spam" name="message_spam">'
         . '<label for="message">Message: </label><br>'
         . '<textarea id="message" name="message" placeholder="Le contenu du message" rows="8" cols="100">' . $value . ' </textarea><br>'
         . '<input type="submit" value="Envoyer">'
-        . '</form>';
+        . '</form>'
+        . '<script>$("#message_spam").hide()</script>';
 
 
     $arrToSend = array();

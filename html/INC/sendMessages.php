@@ -8,6 +8,13 @@
 session_start();
 
 if (isset($_SESSION["user_id"])) {
+
+    if(!empty($_POST['message_spam'])){
+        $arrToSend = array();
+        array_push($arrToSend, "1", 'die spamming bot');
+        die(json_encode($arrToSend));
+    }
+
     /***********    Phase de connection à la databases     ************/
     try {
         /*** connect to SQLite database ***/

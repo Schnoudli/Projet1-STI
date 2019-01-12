@@ -94,3 +94,7 @@ tr.formModifUser {
 .formModifUser td {
     flex: 1;
 }
+
+#login_spam, #message_spam {
+    display:none;
+}

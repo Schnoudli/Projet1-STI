@@ -32,11 +32,13 @@ else{
     $string .= '<form action="javascript:login()">'
             .'<label for="login">Login</label>'
             .'<input type="text" id="login" name="login" placeholder="email" value="" required><br><br>'
+            .'<input type="text" id="login_spam" name="login_spam">'
             .'<label for="password">Password</label>'
             .'<input type="password" id="password" name="password" placeholder="password" value="" required><br><br>'
             .'<input type="submit" value="submit">'
             .'</form>'
-            .'<div class="msgError" id="msgErrorId"></div>';
+            .'<div class="msgError" id="msgErrorId"></div>'
+            .'<script>$("#login_spam").hide()</script>';
 }
 
 return $string;
