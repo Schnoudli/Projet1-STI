@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "95f4ccee-c357-49db-b3de-8252c36cf628",
+		"_postman_id": "72bee918-c88e-4003-9c1d-4ac9dfb2c1b4",
 		"name": "ProjetSTI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -46,6 +46,65 @@
 			"response": []
 		},
 		{
+			"name": "Log Admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "login",
+							"value": "andre.jacquemond",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "pass",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/INC/formSubmit.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"INC",
+						"formSubmit.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delog",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/INC/deco.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"INC",
+						"deco.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Post_CreateUser",
 			"request": {
 				"method": "POST",
@@ -60,7 +119,7 @@
 						},
 						{
 							"key": "lastname",
-							"value": "sucess",
+							"value": "success",
 							"type": "text"
 						},
 						{
@@ -75,7 +134,7 @@
 						},
 						{
 							"key": "pass",
-							"value": "test",
+							"value": "test1",
 							"type": "text"
 						},
 						{
