@@ -2,15 +2,15 @@
 \contentsline {figure}{\numberline {2}{\ignorespaces Bo\IeC {\^\i }te de r\IeC {\'e}ception}}{6}{figure.2}
 \contentsline {figure}{\numberline {3}{\ignorespaces Ex\IeC {\'e}cution XSS}}{7}{figure.3}
 \contentsline {figure}{\numberline {4}{\ignorespaces Message malveillant voleur de cookier}}{7}{figure.4}
-\contentsline {figure}{\numberline {5}{\ignorespaces La faille n'est pas visible pour la victime}}{7}{figure.5}
+\contentsline {figure}{\numberline {5}{\ignorespaces La faille n'est pas visible pour la victime}}{8}{figure.5}
 \contentsline {figure}{\numberline {6}{\ignorespaces Le cookie vol\IeC {\'e}}}{8}{figure.6}
 \contentsline {figure}{\numberline {7}{\ignorespaces Exemple d'assainisation}}{8}{figure.7}
 \contentsline {figure}{\numberline {8}{\ignorespaces R\IeC {\'e}sultat de \textit {SQLMap} sur la page de login}}{9}{figure.8}
 \contentsline {figure}{\numberline {9}{\ignorespaces Se connecter comme \textit {user.test} sans conna\IeC {\^\i }tre son mot de passe}}{11}{figure.9}
-\contentsline {figure}{\numberline {10}{\ignorespaces Avant d'utiliser des prepared statements il y avait juste de simples queries}}{11}{figure.10}
-\contentsline {figure}{\numberline {11}{\ignorespaces Example de prepared statement}}{11}{figure.11}
-\contentsline {figure}{\numberline {12}{\ignorespaces Mauvaise destruction de la session}}{12}{figure.12}
+\contentsline {figure}{\numberline {10}{\ignorespaces Avant d'utiliser des prepared statements il y avait juste de simples queries}}{12}{figure.10}
+\contentsline {figure}{\numberline {11}{\ignorespaces Example de prepared statement}}{12}{figure.11}
+\contentsline {figure}{\numberline {12}{\ignorespaces Mauvaise destruction de la session}}{13}{figure.12}
 \contentsline {figure}{\numberline {13}{\ignorespaces Acc\IeC {\`e}s \IeC {\`a} la page}}{13}{figure.13}
-\contentsline {figure}{\numberline {14}{\ignorespaces Requ\IeC {\^e}te Post r\IeC {\'e}ussi}}{13}{figure.14}
-\contentsline {figure}{\numberline {15}{\ignorespaces Message re\IeC {\c c}u}}{13}{figure.15}
+\contentsline {figure}{\numberline {14}{\ignorespaces Requ\IeC {\^e}te Post r\IeC {\'e}ussi}}{14}{figure.14}
+\contentsline {figure}{\numberline {15}{\ignorespaces Message re\IeC {\c c}u}}{14}{figure.15}
 \contentsline {figure}{\numberline {16}{\ignorespaces Protection \IeC {\`a} ajouter aux diff\IeC {\'e}rentes pages}}{14}{figure.16}
