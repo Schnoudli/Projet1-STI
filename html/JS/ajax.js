@@ -104,7 +104,7 @@ function deleteUser(userId) {
 }
 
 function changePass() {
-    $.post('INC/changePassLayout.php', manageReturn);
+    $.post('INC/updatePasswordLayout.php', manageReturn);
 }
 
 function changePassUser() {
