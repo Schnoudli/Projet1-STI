@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.6)  12 JAN 2019 18:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.6)  12 JAN 2019 18:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -667,7 +667,7 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-<titre/titre.pdf, id=112, 597.50829pt x 845.0471pt>
+<titre/titre.pdf, id=116, 597.50829pt x 845.0471pt>
 File: titre/titre.pdf Graphic file (type pdf)
 <use titre/titre.pdf>
 Package pdftex.def Info: titre/titre.pdf  used on input line 41.
@@ -676,7 +676,7 @@ File: titre/titre.pdf Graphic file (type pdf)
 <use titre/titre.pdf>
 Package pdftex.def Info: titre/titre.pdf  used on input line 41.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
-<titre/titre.pdf, id=115, page=1, 597.50829pt x 845.0471pt>
+<titre/titre.pdf, id=119, page=1, 597.50829pt x 845.0471pt>
 File: titre/titre.pdf Graphic file (type pdf)
 <use titre/titre.pdf, page 1>
 Package pdftex.def Info: titre/titre.pdf , page1 used on input line 41.
@@ -721,110 +721,112 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 ] [4
 
-] [5]
-<images/xssAttack.png, id=284, 1197.47375pt x 420.57124pt>
+] [5
+
+] [6]
+<images/xssAttack.png, id=293, 1197.47375pt x 420.57124pt>
 File: images/xssAttack.png Graphic file (type png)
 <use images/xssAttack.png>
-Package pdftex.def Info: images/xssAttack.png  used on input line 83.
+Package pdftex.def Info: images/xssAttack.png  used on input line 84.
 (pdftex.def)             Requested size: 390.0pt x 136.97281pt.
-<images/xssRecep.png, id=286, 1707.37875pt x 109.40875pt>
+<images/xssRecep.png, id=295, 1707.37875pt x 109.40875pt>
 File: images/xssRecep.png Graphic file (type png)
 <use images/xssRecep.png>
-Package pdftex.def Info: images/xssRecep.png  used on input line 90.
+Package pdftex.def Info: images/xssRecep.png  used on input line 91.
 (pdftex.def)             Requested size: 390.0pt x 24.99152pt.
-<images/xssOpen.png, id=287, 1927.2pt x 467.7475pt>
+<images/xssOpen.png, id=296, 1927.2pt x 467.7475pt>
 File: images/xssOpen.png Graphic file (type png)
 <use images/xssOpen.png>
-Package pdftex.def Info: images/xssOpen.png  used on input line 97.
+Package pdftex.def Info: images/xssOpen.png  used on input line 98.
 (pdftex.def)             Requested size: 390.0pt x 94.6541pt.
- [6
+ [7
 
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.100 
+l.101 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.100 
+l.101 
        <./images/xssAttack.png> <./images/xssRecep.png>]
-<images/cookieStealer.png, id=294, 1135.24126pt x 396.48125pt>
+<images/cookieStealer.png, id=304, 1135.24126pt x 396.48125pt>
 File: images/cookieStealer.png Graphic file (type png)
 <use images/cookieStealer.png>
-Package pdftex.def Info: images/cookieStealer.png  used on input line 106.
+Package pdftex.def Info: images/cookieStealer.png  used on input line 107.
 (pdftex.def)             Requested size: 390.0pt x 136.20538pt.
 
-Overfull \hbox (44.36983pt too wide) in paragraph at lines 110--111
+Overfull \hbox (44.36983pt too wide) in paragraph at lines 111--112
 \T1/cmr/m/n/12 tenant les cook-ies courant sur une serveur ex-terne (ici \T1/cm
 r/m/it/12 lo-cal-host:3000\T1/cmr/m/n/12 . L'administrateur
  []
 
-<images/cookieStealing.png, id=295, 1265.72874pt x 212.795pt>
+<images/cookieStealing.png, id=305, 1265.72874pt x 212.795pt>
 File: images/cookieStealing.png Graphic file (type png)
 <use images/cookieStealing.png>
-Package pdftex.def Info: images/cookieStealing.png  used on input line 114.
+Package pdftex.def Info: images/cookieStealing.png  used on input line 115.
 (pdftex.def)             Requested size: 390.0pt x 65.56638pt.
-[7pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) 
+[8pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.117 
+l.118 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.117 
+l.118 
        <./images/xssOpen.png> <./images/cookieStealer.png>]
-<images/cookieStolen.png, id=303, 471.7625pt x 103.38625pt>
+<images/cookieStolen.png, id=312, 471.7625pt x 103.38625pt>
 File: images/cookieStolen.png Graphic file (type png)
 <use images/cookieStolen.png>
-Package pdftex.def Info: images/cookieStolen.png  used on input line 122.
+Package pdftex.def Info: images/cookieStolen.png  used on input line 123.
 (pdftex.def)             Requested size: 390.0pt x 85.4698pt.
-<images/sanitize.png, id=304, 556.0775pt x 36.135pt>
+<images/sanitize.png, id=313, 556.0775pt x 36.135pt>
 File: images/sanitize.png Graphic file (type png)
 <use images/sanitize.png>
-Package pdftex.def Info: images/sanitize.png  used on input line 133.
+Package pdftex.def Info: images/sanitize.png  used on input line 134.
 (pdftex.def)             Requested size: 390.0pt x 25.34337pt.
 
-Overfull \hbox (87.5634pt too wide) in paragraph at lines 130--135
+Overfull \hbox (87.5634pt too wide) in paragraph at lines 131--136
 \T1/cmr/m/n/12 Les en-trées ont du être "sani-tisées". Nous avons util-isé le f
 il-tre \T1/cmr/m/it/12 FIL-TER_SANITIZE_STRING
  []
 
-<images/sqli.png, id=305, 940.51375pt x 787.94376pt>
+<images/sqli.png, id=314, 940.51375pt x 787.94376pt>
 File: images/sqli.png Graphic file (type png)
 <use images/sqli.png>
-Package pdftex.def Info: images/sqli.png  used on input line 142.
+Package pdftex.def Info: images/sqli.png  used on input line 143.
 (pdftex.def)             Requested size: 390.0pt x 326.73808pt.
-[8pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) 
+[9pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.145 
+l.146 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 6}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.145 
+l.146 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 7}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.145 
+l.146 
        <./images/cookieStealing.png> <./images/cookieStolen.png> <./images/sani
 tize.png>] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 156.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 157.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
@@ -835,232 +837,225 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
 File: lstlang2.sty 2015/06/04 1.6 listings language file
-) [9pdfTeX warning (ext4): destination with the same identifier (name{figure.8}
-) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.164     $bool 
-                = true; <./images/sqli.png>]
-<images/sqliLogin.png, id=322, 389.455pt x 144.54pt>
-File: images/sqliLogin.png Graphic file (type png)
-<use images/sqliLogin.png>
-Package pdftex.def Info: images/sqliLogin.png  used on input line 209.
-(pdftex.def)             Requested size: 390.0pt x 144.74693pt.
- [10]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 218.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 218.
- [11pdfTeX warning (ext4): destination with the same identifier (name{figure.9}
-) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.236 
-       <./images/sqliLogin.png>]
-<images/simpleQuery.png, id=380, 777.90625pt x 66.2475pt>
-File: images/simpleQuery.png Graphic file (type png)
-<use images/simpleQuery.png>
-Package pdftex.def Info: images/simpleQuery.png  used on input line 239.
-(pdftex.def)             Requested size: 390.0pt x 33.21362pt.
-<images/preparedStatement.png, id=381, 672.5125pt x 111.41624pt>
-File: images/preparedStatement.png Graphic file (type png)
-<use images/preparedStatement.png>
-Package pdftex.def Info: images/preparedStatement.png  used on input line 245.
-(pdftex.def)             Requested size: 390.0pt x 64.61296pt.
-<images/unset.png, id=382, 292.09125pt x 127.47626pt>
-File: images/unset.png Graphic file (type png)
-<use images/unset.png>
-Package pdftex.def Info: images/unset.png  used on input line 254.
-(pdftex.def)             Requested size: 390.0pt x 170.22208pt.
- [12pdfTeX warning (ext4): destination with the same identifier (name{figure.10
+) [10pdfTeX warning (ext4): destination with the same identifier (name{figure.8
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.257 
+l.165     $bool 
+                = true; <./images/sqli.png>]
+<images/sqliLogin.png, id=331, 389.455pt x 144.54pt>
+File: images/sqliLogin.png Graphic file (type png)
+<use images/sqliLogin.png>
+Package pdftex.def Info: images/sqliLogin.png  used on input line 210.
+(pdftex.def)             Requested size: 390.0pt x 144.74693pt.
+ [11]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 219.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 219.
+ [12pdfTeX warning (ext4): destination with the same identifier (name{figure.9}
+) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.237 
+       <./images/sqliLogin.png>]
+<images/simpleQuery.png, id=389, 777.90625pt x 66.2475pt>
+File: images/simpleQuery.png Graphic file (type png)
+<use images/simpleQuery.png>
+Package pdftex.def Info: images/simpleQuery.png  used on input line 240.
+(pdftex.def)             Requested size: 390.0pt x 33.21362pt.
+<images/preparedStatement.png, id=390, 672.5125pt x 111.41624pt>
+File: images/preparedStatement.png Graphic file (type png)
+<use images/preparedStatement.png>
+Package pdftex.def Info: images/preparedStatement.png  used on input line 246.
+(pdftex.def)             Requested size: 390.0pt x 64.61296pt.
+<images/unset.png, id=391, 292.09125pt x 127.47626pt>
+File: images/unset.png Graphic file (type png)
+<use images/unset.png>
+Package pdftex.def Info: images/unset.png  used on input line 255.
+(pdftex.def)             Requested size: 390.0pt x 170.22208pt.
+ [13pdfTeX warning (ext4): destination with the same identifier (name{figure.10
+}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.258 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 11}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.257 
+l.258 
        <./images/simpleQuery.png> <./images/preparedStatement.png>]
-<images/exploitMauvaiseDestrucSess.png, id=389, 805.0075pt x 384.43625pt>
+<images/exploitMauvaiseDestrucSess.png, id=399, 805.0075pt x 384.43625pt>
 File: images/exploitMauvaiseDestrucSess.png Graphic file (type png)
 <use images/exploitMauvaiseDestrucSess.png>
 Package pdftex.def Info: images/exploitMauvaiseDestrucSess.png  used on input l
-ine 261.
+ine 262.
 (pdftex.def)             Requested size: 390.0pt x 186.24603pt.
 
-Overfull \hbox (12.69052pt too wide) in paragraph at lines 258--263
+Overfull \hbox (12.69052pt too wide) in paragraph at lines 259--264
 \T1/cmr/m/n/12 es-saie d'accéder à la page \T1/cmr/m/it/12 http://localhost:808
 0/INC/createNewUserLayout.php\T1/cmr/m/n/12 .
  []
 
-<images/sessionDestroy.png, id=390, 303.1325pt x 161.60374pt>
+<images/sessionDestroy.png, id=400, 303.1325pt x 161.60374pt>
 File: images/sessionDestroy.png Graphic file (type png)
 <use images/sessionDestroy.png>
-Package pdftex.def Info: images/sessionDestroy.png  used on input line 270.
+Package pdftex.def Info: images/sessionDestroy.png  used on input line 271.
 (pdftex.def)             Requested size: 390.0pt x 207.91734pt.
-[13pdfTeX warning (ext4): destination with the same identifier (name{figure.12}
+[14pdfTeX warning (ext4): destination with the same identifier (name{figure.12}
 ) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.272 \end{figure}
+l.273 \end{figure}
                   pdfTeX warning (ext4): destination with the same identifier (
 name{figure.13}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.272 \end{figure}
+l.273 \end{figure}
                    <./images/unset.png> <./images/exploitMauvaiseDestrucSess.pn
 g>]
-<images/withoutLogin.jpg, id=398, 396.7322pt x 106.14656pt>
+<images/withoutLogin.jpg, id=407, 396.7322pt x 106.14656pt>
 File: images/withoutLogin.jpg Graphic file (type jpg)
 <use images/withoutLogin.jpg>
-Package pdftex.def Info: images/withoutLogin.jpg  used on input line 279.
+Package pdftex.def Info: images/withoutLogin.jpg  used on input line 280.
 (pdftex.def)             Requested size: 396.73122pt x 106.1463pt.
 
-Overfull \hbox (6.73122pt too wide) in paragraph at lines 279--280
+Overfull \hbox (6.73122pt too wide) in paragraph at lines 280--281
  [][] 
  []
 
-<images/postmanSendMessage.jpg, id=399, 650.43pt x 362.85562pt>
+<images/postmanSendMessage.jpg, id=408, 650.43pt x 362.85562pt>
 File: images/postmanSendMessage.jpg Graphic file (type jpg)
 <use images/postmanSendMessage.jpg>
-Package pdftex.def Info: images/postmanSendMessage.jpg  used on input line 284.
+Package pdftex.def Info: images/postmanSendMessage.jpg  used on input line 285.
 
 (pdftex.def)             Requested size: 390.0pt x 217.57663pt.
-<images/postmanSendMessageSuccess.jpg, id=400, 725.71124pt x 76.78688pt>
+<images/postmanSendMessageSuccess.jpg, id=409, 725.71124pt x 76.78688pt>
 File: images/postmanSendMessageSuccess.jpg Graphic file (type jpg)
 <use images/postmanSendMessageSuccess.jpg>
 Package pdftex.def Info: images/postmanSendMessageSuccess.jpg  used on input li
-ne 289.
+ne 290.
 (pdftex.def)             Requested size: 390.0pt x 41.26627pt.
-[14pdfTeX warning (ext4): destination with the same identifier (name{figure.14}
+[15pdfTeX warning (ext4): destination with the same identifier (name{figure.14}
 ) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.291 \end{figure}
+l.292 \end{figure}
                   pdfTeX warning (ext4): destination with the same identifier (
 name{figure.15}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.291 \end{figure}
+l.292 \end{figure}
                    <./images/sessionDestroy.png> <./images/withoutLogin.jpg>]
-<images/protectionPage.jpg, id=406, 185.19188pt x 23.33719pt>
+<images/protectionPage.jpg, id=415, 185.19188pt x 23.33719pt>
 File: images/protectionPage.jpg Graphic file (type jpg)
 <use images/protectionPage.jpg>
-Package pdftex.def Info: images/protectionPage.jpg  used on input line 297.
+Package pdftex.def Info: images/protectionPage.jpg  used on input line 298.
 (pdftex.def)             Requested size: 390.0pt x 49.14731pt.
 
-[15pdfTeX warning (ext4): destination with the same identifier (name{figure.16}
+[16pdfTeX warning (ext4): destination with the same identifier (name{figure.16}
 ) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.301 
+l.302 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 17}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.301 
+l.302 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 18}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.301 
+l.302 
        <./images/postmanSendMessage.jpg> <./images/postmanSendMessageSuccess.jp
 g> <./images/protectionPage.jpg>]
-<images/noSpamLoginFormHTMLJS.jpg, id=411, 556.32843pt x 132.495pt>
+<images/noSpamLoginFormHTMLJS.jpg, id=420, 556.32843pt x 132.495pt>
 File: images/noSpamLoginFormHTMLJS.jpg Graphic file (type jpg)
 <use images/noSpamLoginFormHTMLJS.jpg>
 Package pdftex.def Info: images/noSpamLoginFormHTMLJS.jpg  used on input line 3
-08.
+09.
 (pdftex.def)             Requested size: 390.0pt x 92.88333pt.
-<images/noSpamLoginFormCSS.jpg, id=412, 155.07938pt x 49.68562pt>
+<images/noSpamLoginFormCSS.jpg, id=421, 155.07938pt x 49.68562pt>
 File: images/noSpamLoginFormCSS.jpg Graphic file (type jpg)
 <use images/noSpamLoginFormCSS.jpg>
-Package pdftex.def Info: images/noSpamLoginFormCSS.jpg  used on input line 313.
+Package pdftex.def Info: images/noSpamLoginFormCSS.jpg  used on input line 314.
 
 (pdftex.def)             Requested size: 390.0pt x 124.96431pt.
-<images/noSpamLoginFormPHP.jpg, id=413, 432.86719pt x 83.5622pt>
+<images/noSpamLoginFormPHP.jpg, id=422, 432.86719pt x 83.5622pt>
 File: images/noSpamLoginFormPHP.jpg Graphic file (type jpg)
 <use images/noSpamLoginFormPHP.jpg>
-Package pdftex.def Info: images/noSpamLoginFormPHP.jpg  used on input line 318.
+Package pdftex.def Info: images/noSpamLoginFormPHP.jpg  used on input line 319.
 
 (pdftex.def)             Requested size: 390.0pt x 75.2907pt.
- [16pdfTeX warning (ext4): destination with the same identifier (name{figure.19
+ [17pdfTeX warning (ext4): destination with the same identifier (name{figure.19
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.321 
+l.322 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 20}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.321 
+l.322 
        <./images/noSpamLoginFormHTMLJS.jpg> <./images/noSpamLoginFormCSS.jpg>]
-<images/ifSupressAdmin.jpg, id=418, 462.22687pt x 155.07938pt>
+<images/ifSupressAdmin.jpg, id=427, 462.22687pt x 155.07938pt>
 File: images/ifSupressAdmin.jpg Graphic file (type jpg)
 <use images/ifSupressAdmin.jpg>
-Package pdftex.def Info: images/ifSupressAdmin.jpg  used on input line 329.
+Package pdftex.def Info: images/ifSupressAdmin.jpg  used on input line 330.
 (pdftex.def)             Requested size: 390.0pt x 130.84789pt.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 334.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 335.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 334.
- [17pdfTeX warning (ext4): destination with the same identifier (name{figure.21
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 335.
+ [18pdfTeX warning (ext4): destination with the same identifier (name{figure.21
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.338 \section{Conclusion}
+l.339 \section{Conclusion}
                           pdfTeX warning (ext4): destination with the same iden
 tifier (name{figure.22}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.338 \section{Conclusion}
+l.339 \section{Conclusion}
                            <./images/noSpamLoginFormPHP.jpg> <./images/ifSupres
 sAdmin.jpg>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 340.
- [18
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 342.
+ [19
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 340.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 342.
  (./rapport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 340.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 340.
-
-
-Package rerunfilecheck Warning: File `rapport.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `rapport.out':
-(rerunfilecheck)             Before: 1A156815BAD4BBD817B927FCE0B185CE;2038
-(rerunfilecheck)             After:  AB9E7CC9347F945B98FDCB79FD1C224A;2084.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 340.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 342.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 342.
+Package rerunfilecheck Info: File `rapport.out' has not changed.
+(rerunfilecheck)             Checksum: AB9E7CC9347F945B98FDCB79FD1C224A;2084.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 342.
  ) 
 Here is how much of TeX's memory you used:
- 11120 strings out of 494853
- 163512 string characters out of 6178459
+ 11122 strings out of 494853
+ 163530 string characters out of 6178459
  543502 words of memory out of 5000000
- 14198 multiletter control sequences out of 15000+600000
+ 14199 multiletter control sequences out of 15000+600000
  13530 words of font info for 33 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  37i,18n,43p,527b,3668s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1073,10 +1068,10 @@ home/leo/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </h
 ome/leo/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </ho
 me/leo/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on rapport.pdf (18 pages, 1457910 bytes).
+Output written on rapport.pdf (19 pages, 1458698 bytes).
 PDF statistics:
- 812 PDF objects out of 1000 (max. 8388607)
- 371 compressed objects within 4 object streams
- 116 named destinations out of 1000 (max. 500000)
- 347 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 822 PDF objects out of 1000 (max. 8388607)
+ 379 compressed objects within 4 object streams
+ 117 named destinations out of 1000 (max. 500000)
+ 355 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,28 +1,28 @@
 \contentsline {section}{\numberline {1}Introduction}{4}{section.1}
-\contentsline {section}{\numberline {2}Analyse de menaces}{4}{section.2}
-\contentsline {subsection}{\numberline {2.1}Agents mena\IeC {\c c}ants}{4}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Vecteurs d'attaque}{4}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Faiblesses de s\IeC {\'e}curit\IeC {\'e}}{4}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Contr\IeC {\^o}le de s\IeC {\'e}curit\IeC {\'e}}{4}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}Impacts techniques}{5}{subsection.2.5}
-\contentsline {subsection}{\numberline {2.6}Impacts business}{5}{subsection.2.6}
-\contentsline {section}{\numberline {3}Vuln\IeC {\'e}rabilit\IeC {\'e}s et corrections}{6}{section.3}
-\contentsline {subsection}{\numberline {3.1}XSS}{6}{subsection.3.1}
-\contentsline {subsubsection}{\numberline {3.1.1}Exploitation : d\IeC {\'e}mo basique}{6}{subsubsection.3.1.1}
-\contentsline {subsubsection}{\numberline {3.1.2}Exploitation : vol de cookies}{7}{subsubsection.3.1.2}
-\contentsline {subsubsection}{\numberline {3.1.3}Correction}{8}{subsubsection.3.1.3}
-\contentsline {subsection}{\numberline {3.2}Injection SQL}{8}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}Exploitation : se connecter sans mot de passe}{9}{subsubsection.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2}Exploitation : changer le mot de passe de n'importe quel utilisateur}{11}{subsubsection.3.2.2}
-\contentsline {subsubsection}{\numberline {3.2.3}Correction}{12}{subsubsection.3.2.3}
-\contentsline {subsection}{\numberline {3.3}Mauvaise destruction des session}{12}{subsection.3.3}
-\contentsline {subsubsection}{\numberline {3.3.1}Exploit}{12}{subsubsection.3.3.1}
-\contentsline {subsubsection}{\numberline {3.3.2}Correction}{14}{subsubsection.3.3.2}
-\contentsline {subsection}{\numberline {3.4}Acc\IeC {\`e}s au page sans login}{14}{subsection.3.4}
-\contentsline {subsubsection}{\numberline {3.4.1}Exploitation}{14}{subsubsection.3.4.1}
-\contentsline {subsubsection}{\numberline {3.4.2}Correction}{15}{subsubsection.3.4.2}
-\contentsline {subsection}{\numberline {3.5}Am\IeC {\'e}liorations}{16}{subsection.3.5}
-\contentsline {subsubsection}{\numberline {3.5.1}Protection anti-spamming}{16}{subsubsection.3.5.1}
-\contentsline {subsubsection}{\numberline {3.5.2}Pr\IeC {\'e}vention mauvaise intention d'administrateur}{17}{subsubsection.3.5.2}
-\contentsline {subsection}{\numberline {3.6}Probl\IeC {\`e}mes non r\IeC {\'e}solvables}{17}{subsection.3.6}
-\contentsline {section}{\numberline {4}Conclusion}{18}{section.4}
+\contentsline {section}{\numberline {2}Analyse de menaces}{5}{section.2}
+\contentsline {subsection}{\numberline {2.1}Agents mena\IeC {\c c}ants}{5}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Vecteurs d'attaque}{5}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Faiblesses de s\IeC {\'e}curit\IeC {\'e}}{5}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Contr\IeC {\^o}le de s\IeC {\'e}curit\IeC {\'e}}{5}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Impacts techniques}{6}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Impacts business}{6}{subsection.2.6}
+\contentsline {section}{\numberline {3}Vuln\IeC {\'e}rabilit\IeC {\'e}s et corrections}{7}{section.3}
+\contentsline {subsection}{\numberline {3.1}XSS}{7}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Exploitation : d\IeC {\'e}mo basique}{7}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Exploitation : vol de cookies}{8}{subsubsection.3.1.2}
+\contentsline {subsubsection}{\numberline {3.1.3}Correction}{9}{subsubsection.3.1.3}
+\contentsline {subsection}{\numberline {3.2}Injection SQL}{9}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Exploitation : se connecter sans mot de passe}{10}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Exploitation : changer le mot de passe de n'importe quel utilisateur}{12}{subsubsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.3}Correction}{13}{subsubsection.3.2.3}
+\contentsline {subsection}{\numberline {3.3}Mauvaise destruction des session}{13}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Exploit}{13}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}Correction}{15}{subsubsection.3.3.2}
+\contentsline {subsection}{\numberline {3.4}Acc\IeC {\`e}s au page sans login}{15}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}Exploitation}{15}{subsubsection.3.4.1}
+\contentsline {subsubsection}{\numberline {3.4.2}Correction}{16}{subsubsection.3.4.2}
+\contentsline {subsection}{\numberline {3.5}Am\IeC {\'e}liorations}{17}{subsection.3.5}
+\contentsline {subsubsection}{\numberline {3.5.1}Protection anti-spamming}{17}{subsubsection.3.5.1}
+\contentsline {subsubsection}{\numberline {3.5.2}Pr\IeC {\'e}vention mauvaise intention d'administrateur}{18}{subsubsection.3.5.2}
+\contentsline {subsection}{\numberline {3.6}Probl\IeC {\`e}mes non r\IeC {\'e}solvables}{18}{subsection.3.6}
+\contentsline {section}{\numberline {4}Conclusion}{19}{section.4}
