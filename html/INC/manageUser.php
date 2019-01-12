@@ -24,26 +24,33 @@ if($_SESSION['admin']) {
         die( "<br><br>Query Closed !!!");
     }
 
-    if($_POST['context']==='update'){
-        $userId = $_POST['userId'];
-        $newMdp = $_POST['newMdp'];
-        $isActif = $_POST["isActif"]==='true' ? 1 : 0;
-        $isAdmin = $_POST["isAdmin"]==='true' ? 1 :  0;
+    $isAdmin;
+    $userIdSession = $_SESSION["user_id"];
 
-        $sth = $file_db->prepare("UPDATE Personne SET Actif=:isActif, Pass=:newMdp, Admin=:isAdmin WHERE User_id =:userId");
-        $sth->execute(array(':isActif' => $isActif, ':newMdp' => $newMdp, ':isAdmin' => $isAdmin, ':userId' => $userId));
-        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
-
+    $sth = $file_db->prepare("SELECT Admin FROM Personne WHERE User_id =:userId");
+    $sth->execute(array(':userId' => $userIdSession));
+    $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($result as $row) {
+        $isAdmin = $row['Admin'];
+        $_SESSION['admin'] = $row['Admin'];
     }
-    elseif ($_POST['context']==='delete'){
-        $userId = $_POST['userId'];
-        if($_SESSION["user_id"] === $userId){
-            array_push($arrToSend, "Impossible de se supprimer soit même!") ;
-            sleep ( 1 );
-            echo json_encode($arrToSend);
-        }
-        else {
-            $result = $file_db->query("DELETE FROM Personne WHERE User_id='$userId'");
+
+    if($isAdmin) {
+        if ($_POST['context'] === 'update') {
+            $userId = $_POST['userId'];
+            $newMdp = $_POST['newMdp'];
+            $isActif = $_POST["isActif"] === 'true' ? 1 : 0;
+            $isAdmin = $_POST["isAdmin"] === 'true' ? 1 : 0;
+
+            $sth = $file_db->prepare("UPDATE Personne SET Actif=:isActif, Pass=:newMdp, Admin=:isAdmin WHERE User_id =:userId");
+            $sth->execute(array(':isActif' => $isActif, ':newMdp' => $newMdp, ':isAdmin' => $isAdmin, ':userId' => $userId));
+            $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+        } elseif ($_POST['context'] === 'delete') {
+            $userId = $_POST['userId'];
+            if ($userIdSession !== $userId) {
+                $result = $file_db->query("DELETE FROM Personne WHERE User_id='$userId'");
+            }
         }
     }
     /***********    Déconnexion de la databases        ************/

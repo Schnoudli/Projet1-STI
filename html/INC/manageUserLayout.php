@@ -6,7 +6,6 @@
  * Time: 13:57
  */
 session_start();
-$layout = '';
 
 if($_SESSION['admin']) {
     /***********    Phase de connection à la databases     ************/
@@ -24,6 +23,7 @@ if($_SESSION['admin']) {
         die( "<br><br>Query Closed !!!");
     }
 
+
     function manageLayout($arr){
         $string = '';
         foreach ($arr as $row) {
@@ -39,10 +39,30 @@ if($_SESSION['admin']) {
         return $string;
     }
 
-    $sth = $file_db->prepare("SELECT * FROM Personne");
-    $sth->execute();
+    $layout = '';
+    $isAdmin;
+    $userIdSession = $_SESSION["user_id"];
+
+    $sth = $file_db->prepare("SELECT Admin FROM Personne WHERE User_id =:userId");
+    $sth->execute(array(':userId' => $userIdSession));
     $result = $sth->fetchAll(PDO::FETCH_ASSOC);
-    $layout = manageLayout($result);
+    foreach ($result as $row) {
+        $isAdmin = $row['Admin'];
+        $_SESSION['admin'] = $row['Admin'];
+    }
+
+    if($isAdmin) {
+        $sth = $file_db->prepare("SELECT * FROM Personne");
+        $sth->execute();
+        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+        $layout = manageLayout($result);
+    }
+
+
+    $arrToSend = array();
+    array_push($arrToSend, '#content', $layout ? $layout : "Vous n'êtes pas administrateur!!!") ;
+    echo json_encode($arrToSend);
+
 
     /***********    Déconnexion de la databases        ************/
     $file_db = null;
@@ -51,7 +71,3 @@ else {
     header('Location: ../index.php');
     exit();
 }
-
-$arrToSend = array();
-array_push($arrToSend, '#content', $layout ? $layout : "Vous n'êtes pas administrateur!!!") ;
-echo json_encode($arrToSend);

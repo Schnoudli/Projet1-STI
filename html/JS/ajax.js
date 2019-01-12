@@ -85,7 +85,7 @@ function responseMsg(idMsg = ''){
 }
 
 function modifUser() {
-    $.post('INC/modifUserLayout.php', manageReturn);
+    $.post('INC/manageUserLayout.php', manageReturn);
 }
 
 function updateUser(userId) {
