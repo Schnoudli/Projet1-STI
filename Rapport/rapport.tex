@@ -248,16 +248,28 @@ Tout comme pour les failles XSS, les entrées ont du être assainies. De plus, l
 
 \subsection{Mauvaise destruction des session}
 \subsubsection{Exploit}
-Les sessions sont mal détruites. Potentiellement, après le login d'un admin, un utilisateur pourrait se retrouver à avoir accès à des informations réservées aux administrateurs.
+Les sessions sont mal détruites. Potentiellement, après le login d'un admin, un utilisateur pourrait se retrouver à avoir accès à des informations réservées aux administrateurs, comme les layouts de modification des comptes. 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{images/unset.png}
 \caption{Mauvaise destruction de la session}
 \end{figure}
 
+Un administrateur était loggé puis, s'est déconnecté. Ensuite, un utilisateur essaie d'accéder à la page \textit{http://localhost:8080/INC/createNewUserLayout.php}. On voit que des informations s'affichent alors qu'elles ne devaient pas !
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{images/exploitMauvaiseDestrucSess.png}
+\caption{Accès réservé aux admins}
+\end{figure}
 
 \subsubsection{Correction}
+Désormais, les sessions sont bien détruites.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{images/sessionDestroy.png}
+\caption{Mauvaise destruction de la session}
+\end{figure}
 
 \subsection{Accès au page sans login}
 \subsubsection{Exploitation}
@@ -287,11 +299,42 @@ Vérification de l'existante de la variable de session \textit{\$\_SESSION["user
 \end{figure}
 L'ajout de cette vérification s'effectue sur tous les fichiers à l'execption de index.php, login.php et des fichiers effectuant déjà la vérification par rapport au fait d'être administrateur
 
+\subsection{Améliorations}
+\subsubsection{Protection anti-spamming}
+Un input caché est rajouté. Les bots ne font pas attention aux styles. Si un bot arrive sur la page et rempli l'input caché, alors le bot sera détecté et démasqué.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{images/noSpamLoginFormHTMLJS.jpg}
+\caption{Protection anti-spam : HTML et JS}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{images/noSpamLoginFormCSS.jpg}
+\caption{Protection anti-spam : CSS}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{images/noSpamLoginFormPHP.jpg}
+\caption{Protection anti-spam : PHP}
+\end{figure}
+
+\subsubsection{Prévention mauvaise intention d'administrateur}
+Si un enlève les droits d'administrateurs à un admin, la modification est appliquée qu'au moment où il se log la prochaine fois. Potentiellement, un administrateur connecté auquel on retire ses droits pourrait toujours entreprendre des actions réservées aux admins, ce qui n'est pas souhaitable.
+
+Désormais chaque action commise par un administrateur est vérifiée. Avant d'être appliquée on vérifie que le user courant est effectivement administrateur dans la DB.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{images/ifSupressAdmin.jpg}
+\caption{Vérification des actions admin}
+\end{figure}
 \subsection{Problèmes non résolvables}
 \begin{itemize}
 \item PHP 5.6
 \item Gestion des cookies de session
 \end{itemize}
+
+\section{Conclusion}
 
 \end{document}

@@ -10,7 +10,13 @@
 \contentsline {figure}{\numberline {10}{\ignorespaces Avant d'utiliser des prepared statements il y avait juste de simples queries}}{12}{figure.10}
 \contentsline {figure}{\numberline {11}{\ignorespaces Example de prepared statement}}{12}{figure.11}
 \contentsline {figure}{\numberline {12}{\ignorespaces Mauvaise destruction de la session}}{13}{figure.12}
-\contentsline {figure}{\numberline {13}{\ignorespaces Acc\IeC {\`e}s \IeC {\`a} la page}}{13}{figure.13}
-\contentsline {figure}{\numberline {14}{\ignorespaces Requ\IeC {\^e}te Post r\IeC {\'e}ussi}}{14}{figure.14}
-\contentsline {figure}{\numberline {15}{\ignorespaces Message re\IeC {\c c}u}}{14}{figure.15}
-\contentsline {figure}{\numberline {16}{\ignorespaces Protection \IeC {\`a} ajouter aux diff\IeC {\'e}rentes pages}}{14}{figure.16}
+\contentsline {figure}{\numberline {13}{\ignorespaces Acc\IeC {\`e}s r\IeC {\'e}serv\IeC {\'e} aux admins}}{13}{figure.13}
+\contentsline {figure}{\numberline {14}{\ignorespaces Mauvaise destruction de la session}}{14}{figure.14}
+\contentsline {figure}{\numberline {15}{\ignorespaces Acc\IeC {\`e}s \IeC {\`a} la page}}{14}{figure.15}
+\contentsline {figure}{\numberline {16}{\ignorespaces Requ\IeC {\^e}te Post r\IeC {\'e}ussi}}{15}{figure.16}
+\contentsline {figure}{\numberline {17}{\ignorespaces Message re\IeC {\c c}u}}{15}{figure.17}
+\contentsline {figure}{\numberline {18}{\ignorespaces Protection \IeC {\`a} ajouter aux diff\IeC {\'e}rentes pages}}{15}{figure.18}
+\contentsline {figure}{\numberline {19}{\ignorespaces Protection anti-spam : HTML et JS}}{16}{figure.19}
+\contentsline {figure}{\numberline {20}{\ignorespaces Protection anti-spam : CSS}}{16}{figure.20}
+\contentsline {figure}{\numberline {21}{\ignorespaces Protection anti-spam : PHP}}{17}{figure.21}
+\contentsline {figure}{\numberline {22}{\ignorespaces V\IeC {\'e}rification des actions admin}}{17}{figure.22}
