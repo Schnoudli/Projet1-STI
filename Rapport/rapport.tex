@@ -46,35 +46,43 @@
 
 \newpage
 \section{Introduction}
-Intro
+Ce projet est la continuité d'une première partie qui a été réalisé plus tôt dans le semestre. Il s'agit de réaliser une analyse de menaces de notre application, de trouver les vulnérabilités qui subsistent et de sécuriser l'application.
 
-\section{Analyse de menaces}
+\section{Description du système}
+Le cahier des charges est le même que pour la première partie. L'application est une simple webapp permettant d'échanger des messages entre utilisateurs. Les utilisateurs doivent posséder un compte pour pouvoir échanger des messages. Un utilisateur peut être administrateur. Si c'est le cas, il aura accès à des fonctionnalités supplémentaires lui permettant d'éditer les informations d'autres utilisateurs.
+\subsection{Identification des biens}
+L'application est une messagerie en ligne basique. Pour pouvoir envoyer ou recevoir un message, un utilisateur a besoin d'un compte. Les comptes sont stockés dans une base de données et sont des biens à protéger. On y retrouve notamment des adresses mails et des mots de passes. 
+
+Le second type de biens sont les messages en eux-même. Ceux-ci doivent rester confidentiels car ils ne concernent que deux utilisateurs.
+
+\subsection{Périmètre de sécurisation}
+Comme nous avons accès au code ne notre application, nous avons une idée des vulnérabilités que nous pouvons y trouver. Dans un premier temps, les entrées utilisateur ne sont pas assainies et sont envoyées telle quelle. Cela laisse place à de nombreuses failles comme des injections SQL ou des XSS. Les entrées utilisateur doivent donc être vérifiées et assainies.
+
+De plus, les accès à la DB n'utilisent pas de query pré-préparées. Cela pourrait donc donner lieu à des injections SQL supplémentaires. Il faudra modifier le code de l'application pour sécuriser les communications à la base de données.
+
+Les accès sont, en principe, vérifiés. Un utilisateurs ne peut accéder qu'aux mails qu'il a envoyé ou reçu et pas ceux d'autres utilisateurs. Les accès administrateurs sont réservés aux administrateurs. Finalement, il n'est pas possible d'accéder à des fichiers stockés sur le serveur. Si un utilisateur essaie d'accéder à une page non prévue, il sera redirigé (c'est au moins ce que nous pensions, nous verrons plus tard que ce n'étais pas tout à fait le cas).
+
+L'application utilise du HTTP simple et aucun chiffrement. Des données pourraient donc être sniffées et si une fuite de données à lieu, toutes les données pourraient être accessibles en clair. Idéalement, l'application devrait utiliser du HTTPS, chiffrer les données et hasher les mots de passes mais nous ne le ferons pas ici.
+
 \subsection{Agents menaçants}
 En principe, notre application devraient être accessibles depuis n'importe qui sur Internet. Les agents menaçants peuvent donc être n'importe qui. Notre application n'est pas révolutionnaire et bien moins efficace que la concurrence. Des attaquants concurrents seraient donc peu probables. Les principaux agents menaçants seraient surtout nous (les élèves du cours STI) ou n'importe quelle personne souhaitant s'amuser.
 
 \subsection{Vecteurs d'attaque}
-Tout se passe sur le web. Les utilisateurs peuvent (et doivent) manipuler des entrées pour envoyer des messages ou mettre à jour leurs profils. Des entrées malveillantes pourraient exploiter des vulnérabilités au sein de notre application.
-
-\subsection{Faiblesses de sécurité}
-Comme nous avons accès au code ne notre application, nous avons une idée des vulnérabilités que nous pouvons y trouver. Dans un premier temps, les entrées utilisateur ne sont pas assainies et sont envoyées telle quelle. Cela laisse place à de nombreuses failles comme des injections SQL ou des XSS.
-
-De plus, les accès à la DB n'utilisent pas de query pré-préparées. Cela pourrait donc donner lieu à des injections SQL supplémentaires.
-
-L'application utilise du HTTP simple et aucun chiffrement. Des données pourraient donc être sniffées et si une fuite de données à lieu, toutes les données pourraient être accessibles en clair.
-
-\subsection{Contrôle de sécurité}
-Les accès sont, en principe, vérifiés. Un utilisateurs ne peut accéder qu'aux mails qu'il a envoyé ou reçu et pas ceux d'autres utilisateurs. Les accès administrateurs sont réservés aux administrateurs. Finalement, il n'est pas possible d'accéder à des fichiers stockés sur le serveur. Si un utilisateur essaie d'accéder à une page non prévue, il sera redirigé.
+Tout se passe sur le web. Les utilisateurs peuvent (et doivent) manipuler des entrées pour envoyer des messages ou mettre à jour leurs profils. Des entrées malveillantes pourraient exploiter des vulnérabilités au sein de notre application comme celles citées plus haut. 
 
 \subsection{Impacts techniques}
 Si des messages sont accédés par des personnes non autorisées, cela peut entraîner une perte de confidentialité.
 
 Un accès non autorisé pourrait donner le droit à un attaquant de modifier, voire supprimer de l'information. Une perte d'intégrité peut donc en découler.
 
+Une perte de disponibilité est également possible si la DB est altérée par exemple.
 \subsection{Impacts business}
 L'impact business serait faible. En effet, notre application n'est pas conçue dans un but lucratif et ne sera probablement pas maintenue par la suite. Si une telle application était mise en production dans le but d'offrir un service sérieux, cela pourrait être problématique car des clients pourraient stocker des informations personnelles voire confidentielles  dans leurs messages. Une fuite de données ou des vulnérabilité pourrait entraîner une perte de confiance complète des utilisateurs.
 
-\section{Vulnérabilités et corrections}
+\section{Vulnérabilités, scénarios d'attaque et contre-mesures}
 \subsection{XSS}
+\subsection{Motivation}
+Ces failles pourraient permettre d'exécuter du code sur un client. Cela pourrait permettre d'usurper une session. L'idéal serait de viser un administrateur. Ainsi, en volant sa session, on pourrait élever nos privilèges.
 \subsubsection{Exploitation : démo basique}
 Le programme est vulnérable aux attaques XSS. Les balises HTML sont correctement inteprétée, ainsi que les balises de script. C'est problématique car un attaquand pourrait envoyer un message malicieux à un administrateur. Lorsque l'admin se connecte, le script pourrait récupérer ses cookies et l'attaquant pourrait les rejouer et devenir donc administrateur.
 
@@ -124,10 +132,10 @@ Finalement, si on se connecte sur notre serveur externe, on peut constater qu'un
 \caption{Le cookie volé}
 \end{figure}
 
-Ce cookie peut tout simplement être rejoué et l'attaquant peut endosser l'identité de l'administrateur \textit{steve.henriquet}.
+Ce cookie peut tout simplement être rejoué et l'attaquant peut endosser l'identité de l'administrateur \textit{steve.henriquet} et donc augmenter ses privilèges.
 
 
-\subsubsection{Correction}
+\subsubsection{Contre-mesures}
 Les entrées ont du être "sanitisées". Nous avons utilisé le filtre \textit{FILTER\_SANITIZE\_STRING} dans les divers inputs accessibles.
 \begin{figure}[H]
 \centering
@@ -144,6 +152,8 @@ D'après l'outil \textit{SQLMap}, on peut déjà sortir quelques informations de
 \caption{Résultat de \textit{SQLMap} sur la page de login}
 \end{figure}
 
+\subsection{Motivation}
+En manipulant les certaines requêtes, il serait possible de gagner un accès non autorisé à l'application. Si l'on peut modifier les données contenues en base de données comme bon nous semble, il serait possible d'altérer des messages et des informations de comptes. Si l'on peut modifier les accès d'un compte ou simplement les afficher, il est possible d'augmenter ses privilèges.
 \subsubsection{Exploitation : se connecter sans mot de passe}
 Dans notre page de login, en essayant d'injecter du code simple, nous avons remarqué que le login se faisait tout de même. D'après notre code, nous avons découvert une injection SQL permettant de bypasser le login et de se connecter en tant que n'importe quel utilisateur sans connaître son mot de passe. La requête effectuée au login est la suivante :
 
@@ -232,7 +242,7 @@ Voici le code PHP associé à la modification d'un mot de passe :
 
 Avec une injection SQL, peut modifier la deuxième requête afin de modifier le password d'un autre utilisateur. Si le nouveau password que l'on rentre est le payload suivant : \textit{newpass' WHERE Username='victim.user' --}, alors l'utilisateur \textit{victim.user} aura son mot de passe modifié en \textit{newPass}. La partie \textit{WHERE User\_id ='" . \$user\_id . "';} de la requête originale n'est pas exécutée car commentée par \textit{--}.
 
-\subsubsection{Correction}
+\subsubsection{Contre-mesures}
 Tout comme pour les failles XSS, les entrées ont du être assainies. De plus, les query simples utilisées dans le code PHP ont été passées en prepared statements.
 
 \begin{figure}[H]
@@ -248,7 +258,9 @@ Tout comme pour les failles XSS, les entrées ont du être assainies. De plus, l
 \end{figure}
 
 \subsection{Mauvaise destruction des session}
-\subsubsection{Exploit}
+\subsection{Motivation}
+Cette faille est une erreur d'implémentation. La motivation qu'un attaquant aurait à l'exploiter (pour autant qu'il en connaisse l'existence) serait simplement d'obtenir des informations qu'il n'est pas autorisé d'avoir.
+\subsubsection{Exploitation}
 Les sessions sont mal détruites. Potentiellement, après le login d'un admin, un utilisateur pourrait se retrouver à avoir accès à des informations réservées aux administrateurs, comme les layouts de modification des comptes. 
 \begin{figure}[H]
 \centering
@@ -263,7 +275,7 @@ Un administrateur était loggé puis, s'est déconnecté. Ensuite, un utilisateu
 \caption{Accès réservé aux admins}
 \end{figure}
 
-\subsubsection{Correction}
+\subsubsection{Contre-mesures}
 Désormais, les sessions sont bien détruites.
 
 \begin{figure}[H]
@@ -273,8 +285,11 @@ Désormais, les sessions sont bien détruites.
 \end{figure}
 
 \subsection{Accès au page sans login}
+\subsection{Motivation}
+Un attaquant pourrait avoir accès à des fonctionnalités de l'application sans avoir à se connecter. 
 \subsubsection{Exploitation}
-Envoie de mail par exemple.
+Il est possible d'effectuer des actions sur note application sans passer par l'interface. En effectuant des requêtes via un terminal ou d'autres outils (tels que \textit{Postman} par exemple), on pourrait accéder à des fonctionnalités sans avoir à se connecter.
+Voici comment envoyer un mail par exemple.
 \begin{figure}[H]
 \centering
 \includegraphics{images/withoutLogin.jpg}
@@ -291,7 +306,7 @@ Envoie de mail par exemple.
 \caption{Message reçu}
 \end{figure}
 
-\subsubsection{Correction}
+\subsubsection{Contre-mesures}
 Vérification de l'existante de la variable de session \textit{\$\_SESSION["user\_id"]}.
 \begin{figure}[H]
 \centering
@@ -300,8 +315,10 @@ Vérification de l'existante de la variable de session \textit{\$\_SESSION["user
 \end{figure}
 L'ajout de cette vérification s'effectue sur tous les fichiers à l'execption de index.php, login.php et des fichiers effectuant déjà la vérification par rapport au fait d'être administrateur
 
-\subsection{Améliorations}
-\subsubsection{Protection anti-spamming}
+\subsubsection{Spamming}
+Des auteurs malveillants pourraient programmer des bots qui enverraient des messages de manière abusives. Cela pourrait nuire aux performances de l'application et mener à un déni de service si l'application est vraiment surchargée.
+
+\subsubsection{Contre-mesure}
 Un input caché est rajouté. Les bots ne font pas attention aux styles. Si un bot arrive sur la page et rempli l'input caché, alors le bot sera détecté et démasqué.
 
 \begin{figure}[H]
@@ -320,9 +337,10 @@ Un input caché est rajouté. Les bots ne font pas attention aux styles. Si un b
 \caption{Protection anti-spam : PHP}
 \end{figure}
 
-\subsubsection{Prévention mauvaise intention d'administrateur}
+\subsection{Droits d'administrateurs retirés au loggout}
 Si un enlève les droits d'administrateurs à un admin, la modification est appliquée qu'au moment où il se log la prochaine fois. Potentiellement, un administrateur connecté auquel on retire ses droits pourrait toujours entreprendre des actions réservées aux admins, ce qui n'est pas souhaitable.
 
+\subsubsection{Contre-mesures}
 Désormais chaque action commise par un administrateur est vérifiée. Avant d'être appliquée on vérifie que le user courant est effectivement administrateur dans la DB.
 
 \begin{figure}[H]
@@ -337,6 +355,6 @@ Désormais chaque action commise par un administrateur est vérifiée. Avant d'�
 \end{itemize}
 
 \section{Conclusion}
-Conclusion
+Cette deuxième partie de projet était très intéressante. La partie recherche de vulnérabilités et amusante à faire mais il est possible que d'autres failles subsistent encore. C'était un bon moyen de manipuler de nouveaux outils et aussi de manipuler des mécanismes fréquemment utilisé dans les applications web. La partie sécurisation nous montre qu'il est important de prévoir la sécurité dès le départ.
 
 \end{document}
