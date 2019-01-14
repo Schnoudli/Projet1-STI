@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-transition="convex" data-background-transition="zoom">
+					<div>
+                        <h1>STI</h1>
+
+                        <!-- ---- TYPED STRING ---->
+                        <h2>Présentation Projet 2</h2>
+                        <!-- ---- END TYPED STRING ---->
+
+                        <p>
+                            <small>
+                                <i>
+                                    Léo Cortès, Steve Henriquet
+                                </i>
+                            </small>
+                        </p>
+                    </div>
+				</section>
+
+				<section>
+
+					<section>
+						<h2>Vulnérabilités</h2>
+						<img src="https://media.giphy.com/media/lp3GUtG2waC88/giphy.gif">
+					</section>
+
+					<section>
+						<h3>XSS</h3>
+
+						<ul>
+							<li>Stockée</li>
+							<li>Possiblité de récupérer des id de session</li>
+							<li>Usurper des identités (admin)</li>
+						</ul>
+
+						<img src="../../Rapport/images/xssOpen.png" style="height: 200px">
+
+						<p>Assainissement des entrées utilisateur</p>
+
+					</section>
+
+					<section>
+						<h3>SQL Injection</h3>
+						<ul>
+							<li>Bypasser le mot de passe => Connection comme n'importe quel utilisateur</li>
+							<li>Modifier le mot de passe d'un autre utilisateur</li>
+						</ul>
+						<img src="../../Rapport/images/sqli.png" style="height: 300px">
+						<p>Utilisation de prepared statements</p>
+
+					</section>
+
+					<section>
+						<h3>Accès aux fonctions sans login</h3>
+						<p>Possibilité de faire de requêtes sans se logger pour effecter des actions comme envoyer un message anonyme</p>
+						<img src="../../Rapport/images/postmanSendMessage.jpg" style="height: 300px">
+						<p>Vérifier l'existance de variable de session</p>
+					</section>
+
+					<section>
+						<h3>Autres modifications</h3>
+						<ul>
+							<li>Protection anti-spamm</li>
+							<li>Vérification des actions admin</li>
+						</ul>
+						<img src="https://media.giphy.com/media/l0IylR4JqKHLjaP60/giphy.gif">
+					</section>
+
+					<section>
+						<h2>Autre</h2>
+							<ul>
+								<li>Pas de HTTPS</li>
+								<li>Données non chiffrées</li>
+								<li>Mots de passes non hashés</li>
+							</ul>
+							<p> <small>Pour simplifier le développement, nous n'avons pas modifié ces quelques aspects </small></p>
+					</section>
+				</section>
+
+				<section>
+					<h3>Démonstration</h3>
+					<img src="https://media.giphy.com/media/UDjF1zMreMld6/giphy.gif">
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
